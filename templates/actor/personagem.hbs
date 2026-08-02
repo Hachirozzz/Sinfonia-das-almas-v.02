@@ -1,0 +1,301 @@
+{{!--
+  FICHA DE PERSONAGEM — Sinfonia das Almas
+
+  Como ler este arquivo:
+  - <input name="system.x.y">  salva sozinho no personagem.
+  - data-action="nome"         chama o método `nome` em ficha-personagem.mjs.
+  - <select data-valor="x">    tem seu valor aplicado por JS ao renderizar.
+--}}
+
+{{!-- ============ CABEÇALHO ============ --}}
+<header class="cabecalho">
+  <img class="retrato" src="{{actor.img}}" data-action="editImage" data-edit="img" alt="Retrato" />
+
+  <div class="identidade">
+    <input class="nome" type="text" name="name" value="{{actor.name}}" placeholder="Nome do personagem" />
+
+    <div class="linha-campos">
+      <label>Classe <input type="text" name="system.detalhes.classe" value="{{system.detalhes.classe}}" /></label>
+      <label class="curto">Nível <input type="number" name="system.detalhes.nivel" value="{{system.detalhes.nivel}}" min="1" /></label>
+    </div>
+
+    <div class="estatisticas">
+      <div class="stat"><span class="rotulo">Defesa</span><span class="valor">{{system.combate.defesa}}</span></div>
+      <div class="stat"><span class="rotulo">Iniciativa</span><span class="valor">{{system.combate.iniciativa}}</span></div>
+      <div class="stat"><span class="rotulo">Deslocamento</span><span class="valor">{{system.combate.deslocamento}}m</span></div>
+      <div class="stat"><span class="rotulo">ND Arcano</span><span class="valor">{{system.ndMisticoArcano}}</span></div>
+      <div class="stat"><span class="rotulo">ND Divino</span><span class="valor">{{system.ndMisticoDivino}}</span></div>
+    </div>
+  </div>
+
+  <div class="barras">
+    <div class="barra pv">
+      <label>Pontos de Vida</label>
+      <div class="par">
+        <input type="number" name="system.recursos.pv.value" value="{{system.recursos.pv.value}}" />
+        <span>/ {{system.recursos.pv.max}}</span>
+      </div>
+    </div>
+    <div class="barra pe">
+      <label>Pontos de Energia</label>
+      <div class="par">
+        <input type="number" name="system.recursos.pe.value" value="{{system.recursos.pe.value}}" />
+        <span>/ {{system.recursos.pe.max}}</span>
+      </div>
+    </div>
+    <div class="barra pi">
+      <label>Pontos de Inventário</label>
+      <div class="par">
+        <input type="number" name="system.recursos.pi.value" value="{{system.recursos.pi.value}}" />
+        <span>/ {{system.recursos.pi.max}}</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+{{!-- ============ NAVEGAÇÃO ============ --}}
+<nav class="abas">
+  <button type="button" data-action="trocarAba" data-aba-botao="principal">Principal</button>
+  <button type="button" data-action="trocarAba" data-aba-botao="pericias">Perícias</button>
+  <button type="button" data-action="trocarAba" data-aba-botao="combate">Equipamento</button>
+  <button type="button" data-action="trocarAba" data-aba-botao="magias">Magias</button>
+  <button type="button" data-action="trocarAba" data-aba-botao="habilidades">Habilidades</button>
+  <button type="button" data-action="trocarAba" data-aba-botao="identidade">Identidade</button>
+</nav>
+
+<div class="conteudo">
+
+  {{!-- ============ ABA: PRINCIPAL ============ --}}
+  <section class="aba" data-aba="principal">
+
+    <h3>Atributos</h3>
+    <p class="ajuda">Cada atributo é um tamanho de dado, de d6 (fraco) a d12 (sobre-humano).</p>
+    <div class="grade-atributos">
+      {{#each atributos as |attr|}}
+        <div class="atributo">
+          <span class="sigla">{{attr.sigla}}</span>
+          <span class="nome-attr">{{attr.rotulo}}</span>
+          <select name="system.atributos.{{attr.chave}}.dado" data-valor="{{attr.dado}}">
+            {{#each ../listas.dados as |d|}}<option value="{{d}}">d{{d}}</option>{{/each}}
+          </select>
+        </div>
+      {{/each}}
+    </div>
+
+    <h3>Eixo da Alma</h3>
+    <p class="ajuda">Perder Determinação gera Corrupção automaticamente. Ao encher a Corrupção,
+      o personagem ganha um Estilhaço da Alma.</p>
+
+    <div class="alma">
+      <div class="trilha determinacao">
+        <label>Determinação</label>
+        <div class="controle">
+          <button type="button" data-action="ajustar" data-caminho="system.alma.determinacao.value" data-delta="-1">−</button>
+          <span class="numero">{{system.alma.determinacao.value}}</span>
+          <span class="max">/ {{system.alma.determinacao.max}}</span>
+          <button type="button" data-action="ajustar" data-caminho="system.alma.determinacao.value" data-delta="1" data-max="{{system.alma.determinacao.max}}">+</button>
+        </div>
+      </div>
+
+      <div class="trilha pontos">
+        <label>Pontos de Determinação</label>
+        <div class="controle">
+          <button type="button" data-action="ajustar" data-caminho="system.alma.pontos.value" data-delta="-1">−</button>
+          <span class="numero">{{system.alma.pontos.value}}</span>
+          <span class="max">/ {{system.alma.pontos.max}}</span>
+          <button type="button" data-action="ajustar" data-caminho="system.alma.pontos.value" data-delta="1" data-max="{{system.alma.pontos.max}}">+</button>
+        </div>
+      </div>
+
+      <div class="trilha corrupcao">
+        <label>Corrupção</label>
+        <div class="controle">
+          <button type="button" data-action="ajustar" data-caminho="system.alma.corrupcao.value" data-delta="-1">−</button>
+          <span class="numero">{{system.alma.corrupcao.value}}</span>
+          <span class="max">/ {{system.alma.corrupcao.max}}</span>
+          <button type="button" data-action="ajustar" data-caminho="system.alma.corrupcao.value" data-delta="1">+</button>
+        </div>
+      </div>
+
+      <div class="trilha estilhacos">
+        <label>Estilhaços da Alma</label>
+        <div class="controle">
+          <input type="number" name="system.alma.estilhacos" value="{{system.alma.estilhacos}}" min="0" />
+        </div>
+      </div>
+    </div>
+
+    <h3>Descanso e sessão</h3>
+    <div class="botoes-linha">
+      <button type="button" data-action="descanso" data-tipo="curto">Descanso Curto (50%)</button>
+      <button type="button" data-action="descanso" data-tipo="completo">Descanso Completo</button>
+      <button type="button" data-action="novaSessao">Nova sessão (libera Origens)</button>
+    </div>
+
+    <h3>Ajustes manuais</h3>
+    <div class="linha-campos">
+      <label class="curto">Bônus PV máx <input type="number" name="system.recursos.pv.bonus" value="{{system.recursos.pv.bonus}}" /></label>
+      <label class="curto">Bônus PE máx <input type="number" name="system.recursos.pe.bonus" value="{{system.recursos.pe.bonus}}" /></label>
+      <label class="curto">Bônus Defesa <input type="number" name="system.combate.defesaBonus" value="{{system.combate.defesaBonus}}" /></label>
+      <label class="curto">Deslocamento <input type="number" name="system.combate.deslocamento" value="{{system.combate.deslocamento}}" /></label>
+      <label class="curto">RD <input type="number" name="system.combate.rd" value="{{system.combate.rd}}" /></label>
+      <label class="curto">Zênites <input type="number" name="system.detalhes.zenites" value="{{system.detalhes.zenites}}" /></label>
+    </div>
+  </section>
+
+  {{!-- ============ ABA: PERÍCIAS ============ --}}
+  <section class="aba" data-aba="pericias">
+    <p class="ajuda">Clique no nome para rolar. <strong>Shift + clique</strong> rola direto, sem a janela.
+      Você pode trocar os dois atributos de qualquer perícia — é assim que o Sacerdote muda
+      Arcanismo para CAR + INT.</p>
+
+    <div class="tabela-pericias">
+      <div class="cabecalho-tabela">
+        <span>Perícia</span><span>Atributos</span><span>Maestria</span><span>Extra</span><span>Total</span>
+      </div>
+
+      {{#each pericias as |p|}}
+        <div class="linha-pericia {{#if p.treinada}}treinada{{/if}}">
+          <button type="button" class="rolar" data-action="rolarPericia" data-pericia="{{p.chave}}">
+            {{p.rotulo}}
+          </button>
+
+          <span class="dados">
+            <select name="system.pericias.{{p.chave}}.attrA" data-valor="{{p.attrA}}">
+              {{#each ../listas.atributos as |a|}}<option value="{{a.valor}}">{{a.rotulo}}</option>{{/each}}
+            </select>
+            <em>d{{p.dadoA}}</em>
+            <select name="system.pericias.{{p.chave}}.attrB" data-valor="{{p.attrB}}">
+              {{#each ../listas.atributos as |a|}}<option value="{{a.valor}}">{{a.rotulo}}</option>{{/each}}
+            </select>
+            <em>d{{p.dadoB}}</em>
+          </span>
+
+          <select name="system.pericias.{{p.chave}}.grau" data-valor="{{p.grau}}">
+            {{#each ../listas.graus as |g|}}<option value="{{g.valor}}">{{g.rotulo}}</option>{{/each}}
+          </select>
+
+          <input type="number" name="system.pericias.{{p.chave}}.mod" value="{{p.mod}}" />
+
+          <span class="total">+{{p.bonus}}</span>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+
+  {{!-- ============ ABA: EQUIPAMENTO ============ --}}
+  <section class="aba" data-aba="combate">
+    <div class="botoes-linha">
+      <button type="button" data-action="criarItem" data-tipo="arma">+ Arma</button>
+      <button type="button" data-action="criarItem" data-tipo="armadura">+ Armadura</button>
+      <button type="button" data-action="criarItem" data-tipo="escudo">+ Escudo</button>
+      <button type="button" data-action="criarItem" data-tipo="conduite">+ Conduíte</button>
+      <button type="button" data-action="criarItem" data-tipo="consumivel">+ Consumível</button>
+    </div>
+
+    <ul class="lista-itens">
+      {{#each inventario as |item|}}
+        <li data-item-id="{{item.id}}" class="{{#if item.system.equipado}}equipado{{/if}}">
+          <img src="{{item.img}}" alt="" />
+          <span class="nome">{{item.name}}</span>
+          <span class="tipo">{{item.type}}</span>
+          <span class="controles">
+            <button type="button" data-action="usarItem" title="Usar / atacar">Usar</button>
+            <button type="button" data-action="rolarDano" title="Rolar dano (Shift = crítico)">Dano</button>
+            <button type="button" data-action="equipar" title="Equipar / desequipar">⚔</button>
+            <button type="button" data-action="editarItem" title="Editar">✎</button>
+            <button type="button" data-action="apagarItem" title="Apagar">✖</button>
+          </span>
+        </li>
+      {{else}}
+        <li class="vazio">Nada equipado ainda. Crie um item acima, ou arraste um de um compêndio.</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  {{!-- ============ ABA: MAGIAS ============ --}}
+  <section class="aba" data-aba="magias">
+    <div class="botoes-linha">
+      <button type="button" data-action="criarItem" data-tipo="magia">+ Magia</button>
+    </div>
+
+    <ul class="lista-itens">
+      {{#each magias as |item|}}
+        <li data-item-id="{{item.id}}">
+          <img src="{{item.img}}" alt="" />
+          <span class="nome">{{item.name}}</span>
+          <span class="tipo">{{item.system.circulo}}º Círculo • {{item.system.custoPE}} PE</span>
+          <span class="controles">
+            <button type="button" data-action="usarItem" title="Conjurar (gasta PE)">Conjurar</button>
+            <button type="button" data-action="rolarDano" title="Rolar dano (Shift = crítico)">Dano</button>
+            <button type="button" data-action="editarItem">✎</button>
+            <button type="button" data-action="apagarItem">✖</button>
+          </span>
+        </li>
+      {{else}}
+        <li class="vazio">Nenhuma magia conhecida.</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  {{!-- ============ ABA: HABILIDADES ============ --}}
+  <section class="aba" data-aba="habilidades">
+    <div class="botoes-linha">
+      <button type="button" data-action="criarItem" data-tipo="habilidade">+ Habilidade</button>
+    </div>
+
+    <ul class="lista-itens">
+      {{#each habilidades as |item|}}
+        <li data-item-id="{{item.id}}">
+          <img src="{{item.img}}" alt="" />
+          <span class="nome">{{item.name}}</span>
+          <span class="tipo">NH {{item.system.nh}}/{{item.system.nhMax}}{{#if item.system.custoPE}} • {{item.system.custoPE}} PE{{/if}}</span>
+          <span class="controles">
+            <button type="button" data-action="usarItem">Usar</button>
+            <button type="button" data-action="editarItem">✎</button>
+            <button type="button" data-action="apagarItem">✖</button>
+          </span>
+        </li>
+      {{else}}
+        <li class="vazio">Nenhuma habilidade da árvore de talentos ainda.</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  {{!-- ============ ABA: IDENTIDADE ============ --}}
+  <section class="aba" data-aba="identidade">
+    <label class="bloco">Pilar
+      <input type="text" name="system.detalhes.pilar" value="{{system.detalhes.pilar}}"
+             placeholder="O núcleo moral ou a ambição maior do personagem" />
+    </label>
+
+    <label class="bloco">Qualidades
+      <textarea name="system.detalhes.qualidades" rows="3">{{system.detalhes.qualidades}}</textarea>
+    </label>
+
+    <label class="bloco">Defeitos
+      <textarea name="system.detalhes.defeitos" rows="3">{{system.detalhes.defeitos}}</textarea>
+    </label>
+
+    <h3>Origens</h3>
+    <p class="ajuda">Cada Origem pode ser ativada 1× por sessão: reduz o ND em 5 e protege
+      da Corrupção em caso de falha.</p>
+
+    <label class="bloco origem {{#if system.origens.evento.usada}}usada{{/if}}">
+      Evento Marcante {{#if system.origens.evento.usada}}<em>(já usada nesta sessão)</em>{{/if}}
+      <input type="text" name="system.origens.evento.texto" value="{{system.origens.evento.texto}}"
+             placeholder="A cicatriz ou o troféu que sua alma carrega" />
+    </label>
+
+    <label class="bloco origem {{#if system.origens.ocupacao.usada}}usada{{/if}}">
+      Ocupação {{#if system.origens.ocupacao.usada}}<em>(já usada nesta sessão)</em>{{/if}}
+      <input type="text" name="system.origens.ocupacao.texto" value="{{system.origens.ocupacao.texto}}"
+             placeholder="Duas palavras: identidade + especificidade" />
+    </label>
+
+    <label class="bloco">Anotações
+      <textarea name="system.detalhes.anotacoes" rows="10">{{system.detalhes.anotacoes}}</textarea>
+    </label>
+  </section>
+
+</div>

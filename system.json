@@ -1,0 +1,41 @@
+{
+  "id": "sinfonia-das-almas",
+  "title": "Sinfonia das Almas",
+  "description": "Sistema de RPG onde cada teste é resolvido por dois dados de atributo somados ao grau de maestria da perícia, e onde a alma vive um cabo de guerra entre Determinação e Corrupção.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    { "name": "Gustavo" }
+  ],
+  "esmodules": ["module/sinfonia.mjs"],
+  "styles": ["css/sinfonia.css"],
+  "documentTypes": {
+    "Actor": {
+      "personagem": {}
+    },
+    "Item": {
+      "arma": {},
+      "armadura": {},
+      "escudo": {},
+      "conduite": {},
+      "consumivel": {},
+      "magia": {},
+      "habilidade": {}
+    }
+  },
+  "url": "https://github.com/SEU-USUARIO/sinfonia-das-almas",
+  "manifest": "https://github.com/SEU-USUARIO/sinfonia-das-almas/releases/latest/download/system.json",
+  "download": "https://github.com/SEU-USUARIO/sinfonia-das-almas/releases/download/v0.1.0/system.zip",
+  "readme": "https://github.com/SEU-USUARIO/sinfonia-das-almas/blob/main/LEIA-ME.md",
+  "bugs": "https://github.com/SEU-USUARIO/sinfonia-das-almas/issues",
+
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
+  "primaryTokenAttribute": "recursos.pv",
+  "secondaryTokenAttribute": "recursos.pe"
+}

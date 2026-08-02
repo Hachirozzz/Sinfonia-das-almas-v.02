@@ -1,0 +1,10 @@
+# Pacotes gerados na hora de publicar — não precisam ir para o repositório.
+*.zip
+
+# Lixo do sistema operacional e de editores.
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

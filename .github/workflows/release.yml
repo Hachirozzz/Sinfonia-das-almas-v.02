@@ -1,0 +1,66 @@
+# Publica uma versão nova do sistema automaticamente.
+#
+# Como disparar: crie uma tag de versão e envie para o GitHub.
+#
+#     git tag v0.1.0
+#     git push origin v0.1.0
+#
+# O resto acontece sozinho: este robô preenche os endereços corretos dentro do
+# system.json, empacota tudo num system.zip e publica os dois numa Release.
+
+name: Publicar versão
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+
+    # Permissão para o robô criar a Release neste repositório.
+    permissions:
+      contents: write
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Preencher os endereços no system.json
+        run: |
+          set -e
+          VERSAO="${GITHUB_REF_NAME#v}"   # "v0.1.0" vira "0.1.0"
+          REPO="${{ github.repository }}" # "usuario/sinfonia-das-almas"
+
+          jq --arg versao    "$VERSAO" \
+             --arg url       "https://github.com/$REPO" \
+             --arg manifesto "https://github.com/$REPO/releases/latest/download/system.json" \
+             --arg pacote    "https://github.com/$REPO/releases/download/$GITHUB_REF_NAME/system.zip" \
+             --arg leiame    "https://github.com/$REPO/blob/main/LEIA-ME.md" \
+             --arg bugs      "https://github.com/$REPO/issues" \
+             '.version = $versao
+              | .url = $url
+              | .manifest = $manifesto
+              | .download = $pacote
+              | .readme = $leiame
+              | .bugs = $bugs' \
+             system.json > system.novo.json
+
+          mv system.novo.json system.json
+          echo "--- system.json publicado ---"
+          cat system.json
+
+      - name: Empacotar o sistema
+        run: |
+          # O system.json precisa ficar na RAIZ do zip — é onde o Foundry procura.
+          zip -r system.zip system.json LEIA-ME.md module templates css
+
+      - name: Criar a Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            system.json system.zip \
+            --title "Sinfonia das Almas $GITHUB_REF_NAME" \
+            --generate-notes

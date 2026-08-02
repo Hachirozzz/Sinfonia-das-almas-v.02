@@ -1,0 +1,232 @@
+{{!-- FICHA DE ITEM — o conteúdo muda conforme o tipo. --}}
+
+<header class="cabecalho-item">
+  <img class="icone" src="{{item.img}}" data-action="editImage" data-edit="img" alt="" />
+  <input class="nome" type="text" name="name" value="{{item.name}}" />
+  <span class="tipo-item">{{item.type}}</span>
+</header>
+
+<div class="corpo-item">
+
+  {{#if temEquipar}}
+    <label class="checkbox">
+      <input type="checkbox" name="system.equipado" {{checked system.equipado}} /> Equipado
+    </label>
+  {{/if}}
+
+  {{!-- ---------- ARMA ---------- --}}
+  {{#if ehArma}}
+    <div class="linha-campos">
+      <label>Categoria
+        <select name="system.categoria" data-valor="{{system.categoria}}">
+          {{#each listas.categoriasArma as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+        </select>
+      </label>
+      <label>Perícia de acerto
+        <select name="system.pericia" data-valor="{{system.pericia}}">
+          {{#each listas.pericias as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+        </select>
+      </label>
+    </div>
+
+    <fieldset>
+      <legend>Dano</legend>
+      <p class="ajuda">Ex.: a Long Sword é POD + AGI + 8, Físico.</p>
+      <div class="linha-campos">
+        <label>Dado A
+          <select name="system.dano.attrA" data-valor="{{system.dano.attrA}}">
+            {{#each listas.atributos as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+          </select>
+        </label>
+        <label>Dado B
+          <select name="system.dano.attrB" data-valor="{{system.dano.attrB}}">
+            {{#each listas.atributos as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+          </select>
+        </label>
+        <label class="curto">Fixo
+          <input type="number" name="system.dano.fixo" value="{{system.dano.fixo}}" />
+        </label>
+        <label>Tipo
+          <select name="system.dano.tipo" data-valor="{{system.dano.tipo}}">
+            {{#each listas.tiposDano as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+          </select>
+        </label>
+      </div>
+    </fieldset>
+
+    <label class="bloco">Alcance
+      <input type="text" name="system.alcance" value="{{system.alcance}}" />
+    </label>
+  {{/if}}
+
+  {{!-- ---------- ARMADURA ---------- --}}
+  {{#if ehArmadura}}
+    <div class="linha-campos">
+      <label>Categoria
+        <select name="system.categoria" data-valor="{{system.categoria}}">
+          {{#each listas.categoriasArmadura as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+        </select>
+      </label>
+      <label class="curto">Defesa fixa
+        <input type="number" name="system.defesa" value="{{system.defesa}}" />
+      </label>
+      <label class="curto">RD
+        <input type="number" name="system.rd" value="{{system.rd}}" />
+      </label>
+    </div>
+    <p class="ajuda">A armadura só substitui a Defesa natural (dado de AGI) se o valor dela for maior.</p>
+  {{/if}}
+
+  {{!-- ---------- ESCUDO ---------- --}}
+  {{#if ehEscudo}}
+    <label class="curto">Bônus de Defesa
+      <input type="number" name="system.defesa" value="{{system.defesa}}" />
+    </label>
+  {{/if}}
+
+  {{!-- ---------- CONDUÍTE ---------- --}}
+  {{#if ehConduite}}
+    <div class="linha-campos">
+      <label>Tipo
+        <select name="system.tipo" data-valor="{{system.tipo}}">
+          {{#each listas.tiposConduite as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+        </select>
+      </label>
+      <label class="curto">Valor Fixo
+        <input type="number" name="system.valorFixo" value="{{system.valorFixo}}" />
+      </label>
+    </div>
+    <p class="ajuda">O Valor Fixo é somado ao dano e à cura das magias conjuradas com ele.</p>
+  {{/if}}
+
+  {{!-- ---------- CONSUMÍVEL ---------- --}}
+  {{#if ehConsumivel}}
+    <div class="linha-campos">
+      <label class="curto">Custo em PI
+        <input type="number" name="system.pi" value="{{system.pi}}" />
+      </label>
+      <label class="curto">Quantidade
+        <input type="number" name="system.quantidade" value="{{system.quantidade}}" />
+      </label>
+      <label class="curto">Cura PV
+        <input type="text" name="system.cura.pv" value="{{system.cura.pv}}" placeholder="ex.: 20" />
+      </label>
+      <label class="curto">Cura PE
+        <input type="text" name="system.cura.pe" value="{{system.cura.pe}}" placeholder="ex.: 20" />
+      </label>
+    </div>
+  {{/if}}
+
+  {{!-- ---------- MAGIA ---------- --}}
+  {{#if ehMagia}}
+    <div class="linha-campos">
+      <label class="curto">Círculo
+        <select name="system.circulo" data-valor="{{system.circulo}}">
+          {{#each listas.circulos as |c|}}<option value="{{c}}">{{c}}º</option>{{/each}}
+        </select>
+      </label>
+      <label>Escola
+        <select name="system.escola" data-valor="{{system.escola}}">
+          {{#each listas.escolas as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+        </select>
+      </label>
+      <label class="curto">Custo PE
+        <input type="number" name="system.custoPE" value="{{system.custoPE}}" />
+      </label>
+      <label class="curto">Contínuo
+        <input type="number" name="system.custoContinuo" value="{{system.custoContinuo}}" />
+      </label>
+    </div>
+
+    <div class="linha-campos">
+      <label>Conjuração
+        <input type="text" name="system.tempoConjuracao" value="{{system.tempoConjuracao}}" />
+      </label>
+      <label>Alcance
+        <input type="text" name="system.alcance" value="{{system.alcance}}" />
+      </label>
+      <label>Duração
+        <input type="text" name="system.duracao" value="{{system.duracao}}" />
+      </label>
+    </div>
+
+    <fieldset>
+      <legend>Resolução</legend>
+      <label class="bloco">Como resolve
+        <select name="system.resolucao" data-valor="{{system.resolucao}}">
+          {{#each listas.resolucoes as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+        </select>
+      </label>
+      <div class="linha-campos">
+        <label>Perícia do ataque
+          <select name="system.pericia" data-valor="{{system.pericia}}">
+            {{#each listas.pericias as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+          </select>
+        </label>
+        <label>Resistência do alvo
+          <select name="system.periciaResistencia" data-valor="{{system.periciaResistencia}}">
+            {{#each listas.pericias as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+          </select>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Dano</legend>
+      <div class="linha-campos">
+        <label>Fórmula
+          <input type="text" name="system.dano.formula" value="{{system.dano.formula}}" placeholder="ex.: 1d10" />
+        </label>
+        <label>Tipo
+          <select name="system.dano.tipo" data-valor="{{system.dano.tipo}}">
+            {{#each listas.tiposDano as |o|}}<option value="{{o.valor}}">{{o.rotulo}}</option>{{/each}}
+          </select>
+        </label>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" name="system.dano.usaConduite" {{checked system.dano.usaConduite}} />
+        Soma o Valor Fixo do conduíte equipado
+      </label>
+    </fieldset>
+  {{/if}}
+
+  {{!-- ---------- HABILIDADE ---------- --}}
+  {{#if ehHabilidade}}
+    <div class="linha-campos">
+      <label class="curto">NH atual
+        <input type="number" name="system.nh" value="{{system.nh}}" min="0" />
+      </label>
+      <label class="curto">NH máximo
+        <input type="number" name="system.nhMax" value="{{system.nhMax}}" min="1" />
+      </label>
+      <label class="curto">Custo PE
+        <input type="number" name="system.custoPE" value="{{system.custoPE}}" />
+      </label>
+      <label class="curto">Custo PI
+        <input type="number" name="system.custoPI" value="{{system.custoPI}}" />
+      </label>
+    </div>
+    <div class="linha-campos">
+      <label>Classe
+        <input type="text" name="system.classe" value="{{system.classe}}" placeholder="Guerreiro, Gatuno..." />
+      </label>
+      <label>Tipo
+        <input type="text" name="system.tipo" value="{{system.tipo}}" placeholder="manobra, truque, passiva..." />
+      </label>
+    </div>
+  {{/if}}
+
+  {{!-- ---------- COMUM A TODOS ---------- --}}
+  <label class="bloco">Propriedades
+    <input type="text" name="system.propriedades" value="{{system.propriedades}}"
+           placeholder="ex.: Duas mãos. Veloz: +1 Iniciativa" />
+  </label>
+
+  <label class="bloco curto">Custo em Zênites
+    <input type="number" name="system.custo" value="{{system.custo}}" />
+  </label>
+
+  <label class="bloco">Descrição
+    <textarea name="system.descricao" rows="8">{{system.descricao}}</textarea>
+  </label>
+</div>

@@ -1,0 +1,30 @@
+{{!-- Card de resultado publicado no chat. --}}
+
+<div class="sinfonia-card rolagem {{#if critico}}critico{{/if}}">
+  <h3>{{titulo}}</h3>
+  {{#if subtitulo}}<p class="meta">{{subtitulo}}</p>{{/if}}
+
+  <div class="resultado">
+    <span class="total">{{total}}</span>
+    {{#unless ehDano}}
+      <span class="dados-brutos">{{valorA}} · {{valorB}}</span>
+    {{/unless}}
+  </div>
+
+  {{#if critico}}
+    <p class="selo-critico">SUCESSO CRÍTICO — acerta ignorando a Defesa, dano dobrado e uma Oportunidade.</p>
+  {{/if}}
+
+  {{#if nd}}
+    <p class="veredito {{#if sucesso}}sucesso{{else}}falha{{/if}}">
+      {{#if sucesso}}Sucesso{{else}}Falha{{/if}} contra ND {{nd}}
+      {{#if ndReduzido}}<em>(reduzido de {{ndOriginal}})</em>{{/if}}
+    </p>
+  {{/if}}
+
+  {{#each avisos as |aviso|}}
+    <p class="aviso">{{aviso}}</p>
+  {{/each}}
+
+  <div class="tooltip-dados">{{{tooltip}}}</div>
+</div>

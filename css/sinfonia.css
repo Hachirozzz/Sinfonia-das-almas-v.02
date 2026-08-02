@@ -1,0 +1,618 @@
+/* ============================================================
+   SINFONIA DAS ALMAS — estilos
+   A classe .sinfonia-das-almas vem do DEFAULT_OPTIONS.classes das fichas.
+   ============================================================ */
+
+.sinfonia-das-almas {
+  --cor-tinta: #1c1b19;
+  --cor-suave: #6b6862;
+  --cor-linha: #b9b3a5;
+  --cor-fundo: #f4f0e6;
+  --cor-destaque: #7b2d3f;
+  --cor-determinacao: #2f6f8f;
+  --cor-corrupcao: #6b2a6b;
+  --cor-pv: #8f2f2f;
+  --cor-pe: #2f5f8f;
+}
+
+.sinfonia-das-almas .window-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.7rem;
+  background: var(--cor-fundo);
+  color: var(--cor-tinta);
+  overflow-y: auto;
+}
+
+.sinfonia-das-almas h3 {
+  margin: 0.6rem 0 0.3rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid var(--cor-linha);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-destaque);
+}
+
+.sinfonia-das-almas .ajuda {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas input,
+.sinfonia-das-almas select,
+.sinfonia-das-almas textarea {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--cor-linha);
+  border-radius: 3px;
+  color: var(--cor-tinta);
+  font-size: 0.8rem;
+}
+
+.sinfonia-das-almas button {
+  border: 1px solid var(--cor-linha);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--cor-tinta);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.sinfonia-das-almas button:hover {
+  background: rgba(123, 45, 63, 0.12);
+  border-color: var(--cor-destaque);
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.sinfonia-das-almas .cabecalho {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 0.7rem;
+  align-items: start;
+}
+
+.sinfonia-das-almas .retrato {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 2px solid var(--cor-linha);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sinfonia-das-almas .identidade {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.sinfonia-das-almas .nome {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--cor-linha);
+}
+
+.sinfonia-das-almas .linha-campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sinfonia-das-almas .linha-campos label,
+.sinfonia-das-almas .bloco {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 130px;
+  gap: 0.15rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .linha-campos label.curto { flex: 0 0 92px; }
+.sinfonia-das-almas .bloco { margin-bottom: 0.5rem; }
+
+.sinfonia-das-almas .estatisticas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.sinfonia-das-almas .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 62px;
+  padding: 0.2rem 0.35rem;
+  border: 1px solid var(--cor-linha);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.sinfonia-das-almas .stat .rotulo {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .stat .valor {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.sinfonia-das-almas .barras {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 150px;
+}
+
+.sinfonia-das-almas .barra label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .barra .par {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.sinfonia-das-almas .barra input {
+  width: 58px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.sinfonia-das-almas .barra.pv input { border-bottom: 2px solid var(--cor-pv); }
+.sinfonia-das-almas .barra.pe input { border-bottom: 2px solid var(--cor-pe); }
+
+/* ---------- Abas ---------- */
+
+.sinfonia-das-almas .abas {
+  display: flex;
+  gap: 0.2rem;
+  border-bottom: 2px solid var(--cor-linha);
+}
+
+.sinfonia-das-almas .abas button {
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .abas button.ativo {
+  border-bottom-color: var(--cor-destaque);
+  color: var(--cor-destaque);
+  font-weight: 700;
+}
+
+.sinfonia-das-almas .aba.oculto { display: none; }
+
+/* ---------- Atributos ---------- */
+
+.sinfonia-das-almas .grade-atributos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.4rem;
+}
+
+.sinfonia-das-almas .atributo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.4rem;
+  border: 1px solid var(--cor-linha);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.sinfonia-das-almas .atributo .sigla {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cor-destaque);
+}
+
+.sinfonia-das-almas .atributo .nome-attr {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .atributo select {
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ---------- Eixo da Alma ---------- */
+
+.sinfonia-das-almas .alma {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.4rem;
+}
+
+.sinfonia-das-almas .trilha {
+  padding: 0.4rem;
+  border: 1px solid var(--cor-linha);
+  border-left-width: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.sinfonia-das-almas .trilha.determinacao { border-left-color: var(--cor-determinacao); }
+.sinfonia-das-almas .trilha.corrupcao { border-left-color: var(--cor-corrupcao); }
+.sinfonia-das-almas .trilha.pontos { border-left-color: #4a8f6f; }
+.sinfonia-das-almas .trilha.estilhacos { border-left-color: #8f6f2f; }
+
+.sinfonia-das-almas .trilha label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .trilha .controle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sinfonia-das-almas .trilha .controle button {
+  width: 24px;
+  font-weight: 700;
+}
+
+.sinfonia-das-almas .trilha .numero {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.sinfonia-das-almas .trilha .max {
+  font-size: 0.75rem;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .botoes-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.sinfonia-das-almas .botoes-linha button { padding: 0.25rem 0.6rem; }
+
+/* ---------- Perícias ---------- */
+
+.sinfonia-das-almas .tabela-pericias {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sinfonia-das-almas .cabecalho-tabela,
+.sinfonia-das-almas .linha-pericia {
+  display: grid;
+  grid-template-columns: 1.6fr 2.1fr 1.1fr 52px 46px;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.sinfonia-das-almas .cabecalho-tabela {
+  padding: 0 0.2rem 0.2rem;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .linha-pericia {
+  padding: 0.12rem 0.2rem;
+  border-radius: 3px;
+}
+
+.sinfonia-das-almas .linha-pericia:nth-child(odd) { background: rgba(0, 0, 0, 0.03); }
+.sinfonia-das-almas .linha-pericia.treinada { background: rgba(123, 45, 63, 0.08); }
+
+.sinfonia-das-almas .linha-pericia .rolar {
+  text-align: left;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+}
+
+.sinfonia-das-almas .linha-pericia .rolar:hover {
+  color: var(--cor-destaque);
+  text-decoration: underline;
+}
+
+.sinfonia-das-almas .linha-pericia .dados {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.sinfonia-das-almas .linha-pericia .dados select {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.7rem;
+}
+
+.sinfonia-das-almas .linha-pericia .dados em {
+  font-size: 0.65rem;
+  color: var(--cor-suave);
+  font-style: normal;
+}
+
+.sinfonia-das-almas .linha-pericia input[type="number"] {
+  width: 100%;
+  text-align: center;
+}
+
+.sinfonia-das-almas .linha-pericia .total {
+  text-align: center;
+  font-weight: 700;
+  color: var(--cor-destaque);
+}
+
+/* ---------- Listas de itens ---------- */
+
+.sinfonia-das-almas .lista-itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sinfonia-das-almas .lista-itens li {
+  display: grid;
+  grid-template-columns: 26px 1fr auto auto;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.25rem 0.35rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.sinfonia-das-almas .lista-itens li.equipado {
+  border-color: var(--cor-destaque);
+  background: rgba(123, 45, 63, 0.08);
+}
+
+.sinfonia-das-almas .lista-itens li.vazio {
+  display: block;
+  padding: 0.7rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--cor-suave);
+  background: transparent;
+}
+
+.sinfonia-das-almas .lista-itens img {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border: none;
+  border-radius: 3px;
+}
+
+.sinfonia-das-almas .lista-itens .nome { font-weight: 600; }
+
+.sinfonia-das-almas .lista-itens .tipo {
+  font-size: 0.68rem;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas .lista-itens .controles {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.sinfonia-das-almas .lista-itens .controles button {
+  padding: 0.1rem 0.35rem;
+  font-size: 0.7rem;
+}
+
+/* ---------- Origens ---------- */
+
+.sinfonia-das-almas .origem.usada { opacity: 0.55; }
+
+.sinfonia-das-almas .origem em {
+  text-transform: none;
+  color: var(--cor-destaque);
+}
+
+/* ---------- Ficha de item ---------- */
+
+.sinfonia-das-almas .cabecalho-item {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sinfonia-das-almas .icone {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border: 1px solid var(--cor-linha);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.sinfonia-das-almas .tipo-item {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cor-suave);
+}
+
+.sinfonia-das-almas fieldset {
+  margin: 0 0 0.5rem;
+  padding: 0.4rem 0.6rem 0.6rem;
+  border: 1px solid var(--cor-linha);
+  border-radius: 4px;
+}
+
+.sinfonia-das-almas legend {
+  padding: 0 0.35rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cor-destaque);
+}
+
+.sinfonia-das-almas .checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: none;
+  color: var(--cor-tinta);
+}
+
+/* ---------- Janela de rolagem ---------- */
+
+.sinfonia-dialogo { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.sinfonia-dialogo .formula {
+  margin: 0;
+  padding: 0.4rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.sinfonia-dialogo .formula span {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #6b6862;
+}
+
+.sinfonia-dialogo .campo { display: flex; flex-direction: column; gap: 0.15rem; }
+
+.sinfonia-dialogo .campo > label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: #6b6862;
+}
+
+.sinfonia-dialogo .campo-check {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.sinfonia-dialogo .campo-check.desativado { opacity: 0.45; }
+
+/* ---------- Cards no chat ---------- */
+
+.sinfonia-card {
+  padding: 0.4rem 0.5rem;
+  border-left: 4px solid #7b2d3f;
+  border-radius: 3px;
+  background: rgba(123, 45, 63, 0.06);
+}
+
+.sinfonia-card h3 {
+  margin: 0 0 0.2rem;
+  border: none;
+  font-size: 0.95rem;
+  color: #7b2d3f;
+}
+
+.sinfonia-card .meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  color: #6b6862;
+}
+
+.sinfonia-card .resultado {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.sinfonia-card .resultado .total {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sinfonia-card .resultado .dados-brutos {
+  font-size: 0.78rem;
+  color: #6b6862;
+}
+
+.sinfonia-card .veredito {
+  margin: 0.3rem 0 0;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.sinfonia-card .veredito.sucesso { color: #2f6f3f; }
+.sinfonia-card .veredito.falha { color: #8f2f2f; }
+
+.sinfonia-card .selo-critico {
+  margin: 0.3rem 0 0;
+  padding: 0.25rem 0.4rem;
+  border-radius: 3px;
+  background: #7b2d3f;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.sinfonia-card .aviso {
+  margin: 0.25rem 0 0;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: #6b2a6b;
+}
+
+.sinfonia-card.estilhaco {
+  border-left-color: #6b2a6b;
+  background: rgba(107, 42, 107, 0.09);
+}
+
+.sinfonia-card.estilhaco h3 { color: #6b2a6b; }
+
+.sinfonia-card .nota {
+  margin: 0.3rem 0 0;
+  font-size: 0.72rem;
+  color: #6b6862;
+}
+
+.sinfonia-card .tooltip-dados { margin-top: 0.35rem; }
