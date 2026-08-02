@@ -1,110 +1,33 @@
-# Como publicar o sistema online
+# Como publicar o sistema
 
-Objetivo: chegar num link que qualquer pessoa cola no Foundry em
-**Game Systems → Install System → Manifest URL** e pronto — instalado.
+Repositório: **[Hachirozzz/Sinfonia-das-almas-v.02](https://github.com/Hachirozzz/Sinfonia-das-almas-v.02)**
 
-Você só passa por esta configuração **uma vez**. Depois, lançar uma versão nova
-são dois comandos.
+Link de instalação (esse endereço **nunca muda** — aponta sempre para a versão
+mais recente):
+
+```
+https://github.com/Hachirozzz/Sinfonia-das-almas-v.02/releases/latest/download/system.json
+```
+
+No Foundry: **Game Systems → Install System → Manifest URL**.
 
 ---
 
-## Parte 1 — Configuração inicial (uma vez só)
-
-### Passo 1: criar o repositório no GitHub
-
-1. Entre em [github.com/new](https://github.com/new)
-2. **Repository name:** `sinfonia-das-almas`
-3. Marque **Public**
-   *(Private também funciona, mas aí só você consegue instalar — o Foundry
-   dos seus jogadores não conseguiria baixar.)*
-4. **Não** marque nenhuma das caixinhas de "Initialize this repository"
-   (README, .gitignore, license). O projeto aqui já tem tudo.
-5. Clique em **Create repository**
-
-### Passo 2: escrever seu usuário nos arquivos
-
-Rode o comando abaixo **trocando `SEU-USUARIO`** pelo seu nome de usuário do
-GitHub (o que aparece no endereço do seu perfil):
+## Lançar uma versão
 
 ```bash
-sed -i "s/SEU-USUARIO/coloque-seu-usuario-aqui/g" system.json && grep manifest system.json
+bash publicar.sh v0.2.0
 ```
 
-A última linha impressa deve mostrar o endereço já com o seu usuário.
+O script envia o que estiver pendente, cria a tag e dispara a publicação
+automática. Se houver mudanças não salvas, ele pergunta o que mudou.
 
-> Isso é só cosmético — o robô do Passo 4 preenche os endereços corretos sozinho
-> a cada versão. Mas deixa o arquivo coerente para quem for ler.
+Em menos de um minuto a Release está no ar, e quem já tem o sistema instalado
+vê **"Update Available"** sozinho.
 
-### Passo 3: enviar o código
+Acompanhe em: [Actions](https://github.com/Hachirozzz/Sinfonia-das-almas-v.02/actions)
 
-Rode um de cada vez, trocando `SEU-USUARIO`:
-
-```bash
-git add .
-```
-
-```bash
-git commit -m "Primeira versão da Sinfonia das Almas"
-```
-
-```bash
-git remote add origin https://github.com/SEU-USUARIO/sinfonia-das-almas.git
-```
-
-```bash
-git push -u origin main
-```
-
-> **Vai pedir login.** No Windows abre uma janela do navegador para você entrar
-> na sua conta GitHub. Isso acontece só na primeira vez.
-
-### Passo 4: lançar a versão 0.1.0
-
-```bash
-git tag v0.1.0
-```
-
-```bash
-git push origin v0.1.0
-```
-
-Agora vá ao seu repositório no GitHub, aba **Actions**. Você vai ver
-"Publicar versão" rodando. Leva menos de um minuto.
-
-Quando terminar, aparece uma **Release** com dois arquivos: `system.json` e
-`system.zip`.
-
-### Passo 5: seu link de instalação
-
-```
-https://github.com/SEU-USUARIO/sinfonia-das-almas/releases/latest/download/system.json
-```
-
-Esse é o link. Cole no Foundry em **Game Systems → Install System → Manifest URL**.
-
-Ele aponta sempre para a versão mais recente — você nunca precisa trocá-lo.
-
----
-
-## Parte 2 — Lançar uma atualização
-
-Toda vez que quiser publicar mudanças:
-
-```bash
-git add . && git commit -m "descreva o que mudou"
-```
-
-```bash
-git push
-```
-
-```bash
-git tag v0.2.0 && git push origin v0.2.0
-```
-
-Só isso. O Foundry de quem já instalou vai mostrar **"Update Available"** sozinho.
-
-### Que número usar na versão?
+### Que número usar
 
 O padrão é `vMAIOR.MENOR.CORREÇÃO`:
 
@@ -115,21 +38,37 @@ O padrão é `vMAIOR.MENOR.CORREÇÃO`:
 | Mudou a estrutura e fichas antigas quebram | `v0.9.0` → `v1.0.0` |
 
 **Nunca reutilize uma tag.** Cada versão precisa de um número novo, senão o
-Foundry não percebe que houve atualização.
+Foundry não percebe que houve atualização. O script barra isso automaticamente.
+
+---
+
+## O que acontece por baixo
+
+Quando uma tag `v*` chega no GitHub, o robô em
+[`.github/workflows/release.yml`](.github/workflows/release.yml):
+
+1. Preenche `version`, `manifest` e `download` dentro do `system.json` com os
+   endereços corretos daquela versão
+2. Empacota `system.json`, `LEIA-ME.md`, `module/`, `templates/` e `css/` num
+   `system.zip` — com o `system.json` na raiz, que é onde o Foundry procura
+3. Publica os dois arquivos numa Release
+
+Você nunca precisa editar esses endereços na mão.
 
 ---
 
 ## Detalhes que valem saber
 
-**Licença.** O repositório está sem arquivo de licença. Sem isso, legalmente
-ninguém pode redistribuir seu sistema — o que talvez seja exatamente o que você
-quer. Se um dia quiser abrir, a MIT é a mais comum nesse meio.
+**Teste antes de publicar.** Use o atalho simbólico descrito no
+[LEIA-ME.md](LEIA-ME.md) e confirme na sua máquina que a ficha abre. O link é
+público no instante em que a Release sai.
 
-**Repositório privado não funciona para instalar.** O Foundry baixa o zip sem
-estar logado na sua conta. Se o repositório for privado, o download falha.
+**O repositório precisa continuar Public.** O Foundry baixa o zip sem estar
+logado — se virar privado, a instalação quebra para todo mundo.
 
-**Se a aba Actions mostrar erro vermelho**, clique no passo que falhou e me
-mande o texto — normalmente é uma bobagem de nome de arquivo.
+**Licença.** Não há arquivo de licença no repositório. Sem isso, formalmente
+ninguém pode redistribuir o sistema — o que talvez seja o que você quer. Se um
+dia quiser abrir, a MIT é a mais comum nesse meio.
 
-**Testar antes de publicar** continua sendo pelo atalho simbólico descrito no
-[LEIA-ME.md](LEIA-ME.md). Publique só quando estiver funcionando na sua máquina.
+**Se a aba Actions ficar vermelha**, clique no passo que falhou e leia as
+últimas linhas — costuma ser nome de arquivo errado.
