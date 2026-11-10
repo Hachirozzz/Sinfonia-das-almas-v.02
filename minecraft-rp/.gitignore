@@ -1,0 +1,4 @@
+# Nada disto vai para o Git: binários, mundos, dados de jogador e segredos.
+*.jar
+.env
+servidor/
