@@ -10,7 +10,7 @@ ARQ_ENV="$RAIZ/.env"
 ARQ_PID="$SERVIDOR/.servidor.pid"
 ARQ_CONSOLE="$SERVIDOR/.console"
 
-info() { printf '[infra] %s\n' "$*"; }
+info() { printf '[infra] %s\n' "$*" >&2; }
 erro() { printf '[infra] ERRO: %s\n' "$*" >&2; exit 1; }
 
 # Carrega as versões fixadas (versoes.env).

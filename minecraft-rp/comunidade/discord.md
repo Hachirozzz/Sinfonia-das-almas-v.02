@@ -4,7 +4,7 @@ Estrutura para a fase de 1 pessoa, com o que acrescentar nas fases de 5 e 15.
 Regra geral: canal vazio passa impressão de servidor morto. Só crie um canal
 quando houver conversa para ele.
 
-Onde aparece `[NOME DO SERVIDOR]`, troque pelo nome quando ele for decidido.
+Onde aparece `Crônicas de Serenthia`, troque pelo nome quando ele for decidido.
 
 ## 1. Configurações do servidor
 
@@ -170,7 +170,7 @@ Cada bloco cabe em uma mensagem do Discord (limite de 2000 caracteres).
 ### 6.1 `#boas-vindas`
 
 ```
-# Bem-vindo(a) a [NOME DO SERVIDOR]
+# Bem-vindo(a) a Crônicas de Serenthia
 
 Um servidor brasileiro de **roleplay de fantasia medieval** no Minecraft Java. Aqui você cria um personagem e vive a história dele junto com os outros jogadores, **por texto**. Não é survival, não é minigame e ninguém "zera": o que conta é a história.
 
@@ -198,7 +198,7 @@ Servidor não oficial de Minecraft. Não aprovado nem associado à Mojang ou à 
 Mensagem 1:
 
 ```
-# Regras de [NOME DO SERVIDOR]
+# Regras de Crônicas de Serenthia
 
 Resumo. O texto completo, com exemplos, está em: [LINK DO REGULAMENTO]
 

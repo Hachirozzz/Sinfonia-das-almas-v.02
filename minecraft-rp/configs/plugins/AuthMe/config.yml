@@ -93,6 +93,11 @@ settings:
                 enable: true
     # O arquivo de boas-vindas padrão é em inglês; a recepção fica com o plugin de chat.
     useWelcomeMessage: false
+    # Quem erra a senha chega a entrar por um instante antes de ser expulso.
+    # Com estas duas opções ninguém vê "entrou no jogo" / "saiu do jogo" de
+    # quem não se autenticou.
+    delayJoinMessage: true
+    removeUnloggedLeaveMessage: true
     # "Fulano" registrado: "FULANO" e "fulano" não entram. Essencial em modo
     # offline, onde cada grafia geraria um UUID (e um inventário) diferente.
     preventOtherCase: true

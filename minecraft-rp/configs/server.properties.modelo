@@ -1,6 +1,6 @@
 # Modelo do server.properties. NÃO edite servidor/server.properties: ele é
 # regerado a partir deste arquivo a cada inicialização (scripts/preparar.sh).
-# Os campos {{ASSIM}} vêm do .env. Chaves conferidas no Paper 26.2 build 135.
+# Os campos entre chaves duplas vêm do .env. Chaves conferidas no Paper 26.2 build 135.
 
 # --- Contas e acesso ---
 # Modo offline: aceita conta original e não original. Quem protege os nicks é o
@@ -50,9 +50,9 @@ level-seed={{SEMENTE}}
 level-type=minecraft\:normal
 generator-settings={}
 generate-structures=true
-# Borda do mundo: raio máximo, em blocos, que a borda vanilla pode ter em
-# qualquer dimensão. 3000 = mapa de 6000 x 6000. Dá para aumentar depois;
-# diminuir deixa terreno já explorado do lado de fora.
+# A borda do mundo é definida em configs/world/datapacks/base-servidor
+# (6000 blocos de largura nas três dimensões). O valor abaixo é só o teto: o
+# raio máximo que qualquer borda pode ter.
 max-world-size=3000
 spawn-protection=16
 initial-enabled-packs=vanilla

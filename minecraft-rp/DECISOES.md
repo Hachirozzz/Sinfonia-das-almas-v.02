@@ -9,7 +9,8 @@ pelo dono do servidor. Para mudar, edite este arquivo primeiro.
 | --- | --- |
 | Projeto | Servidor de Minecraft de roleplay, do zero, sem aproveitar projetos anteriores |
 | Idioma e público | Português, público brasileiro |
-| Tema | Fantasia medieval, com mundo e regras originais |
+| Nome do servidor | Crônicas de Serenthia |
+| Tema | Alta fantasia: mundo original chamado Serenthia, com magia presente e várias raças |
 | Plataforma | Só Java (sem Bedrock) |
 | Contas | Originais e não originais (modo offline com plugin de login) |
 | Estilo de RP | Por texto, com chat por distância. Voz por proximidade opcional |
@@ -49,4 +50,14 @@ confira na fonte antes de tratar preço ou versão como fato.
 
 - Hospedagem: qual empresa e qual plano
 - Modelo de entrada de jogadores: a proposta é formulário curto no Discord, com entradas em turmas (o `mc-comunidade` detalha, o dono decide)
-- Nome do servidor e do mundo
+
+## Prioridade atual (definida pelo dono)
+
+Foco total na estrutura e no funcionamento do servidor: base, login, plugins,
+plugin próprio e testes. Regulamento, privacidade, loja e demais textos de
+comunidade ficam como estão, sem novas rodadas por enquanto.
+
+A lore em `lore/` foi escrita antes da escolha do tema e descreve o conceito
+"Vazante", que **não** foi adotado. Ela será reescrita para Serenthia depois que
+o servidor estiver funcionando. Até lá, as regras em `sistemas/` valem para
+qualquer mundo e `sistemas/vazante.md` serve só de exemplo.
