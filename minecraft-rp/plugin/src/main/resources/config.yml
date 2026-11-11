@@ -1,0 +1,107 @@
+# Núcleo de RP - números de balanceamento e opções.
+# Depois de editar: /nucleorp recarregar (não precisa reiniciar o servidor).
+# Textos ficam em mensagens.yml; raças e ofícios, em racas-e-oficios.yml.
+# A antessala e as zonas de paz são gravadas pelos comandos em locais.yml.
+
+login:
+  # Qual plugin de login avisa o núcleo de que o jogador se autenticou.
+  #   authme  - AuthMe (o plugin de login do servidor)
+  #   nenhuma - sem plugin de login: quem entra já conta como autenticado.
+  #             SÓ para teste local. Nunca em servidor aberto em modo offline.
+  integracao: authme
+
+personagem:
+  # Nesta versão (etapas 1 e 2) cada conta joga com um personagem por vez; a
+  # troca entre personagens chega na etapa 3. Mantenha 1 até lá.
+  vagas-por-conta: 1
+  nome: { min: 3, max: 30 }
+  tratamento-max: 12
+  aparencia-max: 200
+  # Dias de espera para criar outro personagem depois de aposentar ou perder um.
+  espera-apos-encerrar-dias: 3
+  troca-de-oficio-dias: 30
+  # A criação guiada lê as respostas digitadas no chat (nome, idade, aparência).
+  # Se o plugin de chat atrapalhar, desligue: os mesmos passos funcionam por
+  # comando (/personagem nome ..., /personagem idade ... etc.).
+  criacao-pelo-chat: true
+
+antessala:
+  # Quem não tem personagem ativo é devolvido à antessala se passar deste raio.
+  raio: 30
+
+atributos:
+  pontos-na-criacao: 5
+  maximo-na-criacao: 3
+  teto: 4
+  # Quanto a aptidão da raça soma ao atributo.
+  aptidao-da-raca: 1
+  # A lista é livre: mude nomes, acrescente ou tire atributos. O identificador
+  # (à esquerda) é o que o jogador digita e o que fica gravado no banco; trocar
+  # o identificador de um atributo em uso zera esse atributo nas fichas antigas.
+  #   ataque / defesa: pode ser usado em /atacar e para se defender
+  #   verbo-defesa:    texto do botão de defesa
+  #   so-por-concessao: começa em 0, só a staff altera, quem tem 0 não testa
+  #   falha-causa-ferimento: leve ou grave; falhar no teste fere o personagem
+  lista:
+    braco: { nome: "Braço", ataque: true, defesa: true, verbo-defesa: "Aparar" }
+    passo: { nome: "Passo", ataque: true, defesa: true, verbo-defesa: "Esquivar" }
+    tino:  { nome: "Tino" }
+    voz:   { nome: "Voz" }
+    # Quinto atributo, desligado. Existe para a magia:
+    # dom: { nome: "Dom", so-por-concessao: true, falha-causa-ferimento: leve }
+
+testes:
+  dado-lados: 12
+  # Distância, em blocos, até onde os resultados aparecem.
+  alcance-do-resultado: 16
+  dificuldades:
+    facil:   { nome: "Fácil", valor: 4 }
+    normal:  { nome: "Normal", valor: 7 }
+    dificil: { nome: "Difícil", valor: 10 }
+    extrema: { nome: "Extrema", valor: 13 }
+  modificadores:
+    circunstancia-max: 2
+    oficio: 1
+    traco: 2
+    fraqueza: -2
+    # A soma de todos os modificadores fica entre -N e +N.
+    soma-limite: 3
+  disputa: { alcance-da-mira: 6, expira-segundos: 60 }
+  dado-solto: { max-dados: 10, max-lados: 100 }
+  historico-dias: 90
+
+conflito:
+  folego: 3
+  folego-volta-minutos: 10
+  ataque:
+    alcance: 6
+    resposta-segundos: 60
+    espera-segundos: 20
+    # Atributo usado quando /atacar vem sem atributo.
+    atributo-padrao: braco
+  # Atributo da disputa de fuga (os dois lados rolam o mesmo).
+  fuga-atributo: passo
+  fuga-protege-minutos: 10
+  fora-de-combate-minutos: 30
+  protecao-ao-entrar-segundos: 60
+  novato: { dias: 7, revide-minutos: 30 }
+  duelo:
+    contagem: 5
+    # Em pontos de vida: 4 = 2 corações.
+    piso-de-vida: 4
+    distancia-max: 32
+    duracao-minutos: 5
+    proposta-expira-segundos: 60
+  ferimentos:
+    leve:  { dias: 2, penalidade: -1, atributos: [braco, passo] }
+    grave: { dias: 7, penalidade: -2, atributos: todos }
+  tratar:
+    atributo: tino
+    dificuldade: normal
+    vezes-por-dia: 1
+    alcance: 6
+  consentimento-minutos: 30
+
+progressao:
+  # Fuso usado para "dia real" (tratamento uma vez por dia) e para as horas mostradas.
+  fuso: "America/Sao_Paulo"

@@ -14,7 +14,7 @@ pelo dono do servidor. Para mudar, edite este arquivo primeiro.
 | Plataforma | Só Java (sem Bedrock) |
 | Contas | Originais e não originais (modo offline com plugin de login) |
 | Estilo de RP | Por texto, com chat por distância. Voz por proximidade opcional |
-| Cliente | Nenhum mod obrigatório. Customização visual só por resource pack do servidor |
+| Cliente | **Mudou em 11/nov/2026:** o servidor terá mods de conteúdo, com modpack obrigatório para todos os jogadores. Loader, versão e lista de mods em definição |
 | Escala inicial | Uma pessoa mantendo, meta de 20 a 60 jogadores simultâneos |
 
 ## Stack técnica (vinda da pesquisa de novembro de 2026)
@@ -78,3 +78,19 @@ A lore em `lore/` foi escrita antes da escolha do tema e descreve o conceito
 "Vazante", que **não** foi adotado. Ela será reescrita para Serenthia depois que
 o servidor estiver funcionando. Até lá, as regras em `sistemas/` valem para
 qualquer mundo e `sistemas/vazante.md` serve só de exemplo.
+
+## Mudança de rumo: servidor com mods (11/nov/2026)
+
+O dono decidiu usar mods de conteúdo (criaturas, itens, magia, raças) além da voz
+por proximidade. Consequências:
+
+- A seção "Stack técnica" acima (Paper, plugins, kit inicial) descreve a base
+  anterior e **não vale mais** como decisão. Será reescrita quando loader, versão
+  e lista de mods forem definidos.
+- O que já existe e continua útil: os scripts de download com conferência de
+  hash, o `docker-compose` (a imagem aceita servidor com mods), as regras em
+  `sistemas/` e os textos de `comunidade/`.
+- O que precisa ser refeito para a base com mods: login de contas não originais,
+  chat por distância, permissões, proteção de terreno e o núcleo de RP.
+- O trabalho parado no meio (`plugin/` e o kit de plugins) fica no repositório
+  como referência, sem continuidade até a nova base estar definida.

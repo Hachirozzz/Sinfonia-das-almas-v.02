@@ -1,0 +1,92 @@
+name: NucleoRP
+version: '${versao}'
+main: nucleorp.jogo.NucleoRP
+api-version: '26.2'
+description: Núcleo de RP - personagens, nome de RP, testes com dados e conflito.
+softdepend: [PlaceholderAPI, AuthMe]
+
+commands:
+  personagem:
+    description: Cria e administra o seu personagem.
+    aliases: [pers]
+    permission: nucleorp.jogador
+  ficha:
+    description: Mostra ou edita a ficha.
+    permission: nucleorp.jogador
+  testar:
+    description: Teste de atributo.
+    aliases: [t]
+    permission: nucleorp.jogador
+  disputar:
+    description: Pede uma disputa com outro personagem.
+    aliases: [d]
+    permission: nucleorp.jogador
+  responder:
+    description: Responde a uma disputa ou a um ataque.
+    permission: nucleorp.jogador
+  recusar:
+    description: Recusa uma disputa ou um duelo.
+    permission: nucleorp.jogador
+  dado:
+    description: Rola dados soltos.
+    permission: nucleorp.jogador
+  atacar:
+    description: Abre uma troca de golpes.
+    permission: nucleorp.jogador
+  fugir:
+    description: Tenta fugir de um ataque.
+    permission: nucleorp.jogador
+  render:
+    description: Rende-se.
+    permission: nucleorp.jogador
+  duelo:
+    description: Propõe um duelo.
+    permission: nucleorp.jogador
+  aceitar:
+    description: Aceita um duelo.
+    permission: nucleorp.jogador
+  estado:
+    description: Mostra Fôlego e ferimentos.
+    permission: nucleorp.jogador
+  tratar:
+    description: Trata o ferimento de alguém.
+    permission: nucleorp.jogador
+  consentir:
+    description: Registra ou cancela consentimento.
+    permission: nucleorp.jogador
+  desfecho:
+    description: Aplica um desfecho consentido.
+    permission: nucleorp.jogador
+  rolagens:
+    description: Histórico de rolagens.
+    permission: nucleorp.jogador
+  pedirteste:
+    description: Pede um teste aos jogadores.
+    permission: nucleorp.narrador
+  npctestar:
+    description: Rola por um NPC.
+    permission: nucleorp.narrador
+  testaroculto:
+    description: Rola sem a cena ver.
+    permission: nucleorp.narrador
+  nucleorp:
+    description: Comandos da staff e da administração.
+    permission: nucleorp.staff
+
+permissions:
+  nucleorp.jogador:
+    description: Comandos de jogador.
+    default: true
+  nucleorp.narrador:
+    description: Comandos de narrador.
+    default: op
+  nucleorp.staff:
+    description: Revisão de fichas e ajustes.
+    default: op
+    children:
+      nucleorp.narrador: true
+  nucleorp.admin:
+    description: Administração do plugin.
+    default: op
+    children:
+      nucleorp.staff: true

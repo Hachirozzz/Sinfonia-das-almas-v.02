@@ -1,0 +1,62 @@
+# Raças e ofícios do mundo. Quem preenche é o mc-lore.
+#
+# ATENÇÃO: o conteúdo abaixo é só um EXEMPLO para o servidor ligar e ser
+# testado. As raças e os ofícios de Serenthia ainda não foram definidos; troque
+# tudo antes de abrir. Depois de editar: /nucleorp recarregar.
+#
+# O identificador (à esquerda) fica gravado nas fichas. Mudar o NOME é livre;
+# mudar o IDENTIFICADOR de uma raça ou ofício já em uso deixa as fichas antigas
+# apontando para algo que não existe (elas continuam abrindo, mostrando o
+# identificador antigo), então prefira corrigir com /nucleorp raca.
+#
+# Formato da raça (regras em sistemas/ficha.md, seção 6):
+#   nome, idade {min, max}
+#   aptidao: identificador de um atributo de config.yml, ou "escolha" para o
+#            jogador escolher na criação
+#   traco / fraqueza: {nome, texto} - situação estreita de +2 / -2 no teste
+#   altura: escala do corpo, de 0.85 a 1.10 (1.0 = normal; só cosmético)
+#   restrita: true exige /nucleorp liberar <nick> <raça> antes da criação
+
+racas:
+  raca_a:
+    nome: "Raça A (exemplo)"
+    idade: { min: 16, max: 80 }
+    aptidao: escolha
+    traco:
+      nome: "Traço de exemplo"
+      texto: "Recebe +2 em uma situação estreita, a definir pela lore."
+    fraqueza:
+      nome: "Fraqueza de exemplo"
+      texto: "Recebe -2 em uma situação estreita, a definir pela lore."
+    altura: 1.0
+    restrita: false
+  raca_b:
+    nome: "Raça B (exemplo)"
+    idade: { min: 20, max: 300 }
+    aptidao: tino
+    traco:
+      nome: "Traço de exemplo"
+      texto: "Recebe +2 em uma situação estreita, a definir pela lore."
+    fraqueza:
+      nome: "Fraqueza de exemplo"
+      texto: "Recebe -2 em uma situação estreita, a definir pela lore."
+    altura: 0.9
+    restrita: false
+  raca_c:
+    nome: "Raça C (exemplo, restrita)"
+    idade: { min: 16, max: 60 }
+    aptidao: braco
+    traco:
+      nome: "Traço de exemplo"
+      texto: "Recebe +2 em uma situação estreita, a definir pela lore."
+    fraqueza:
+      nome: "Fraqueza de exemplo"
+      texto: "Recebe -2 em uma situação estreita, a definir pela lore."
+    altura: 1.1
+    restrita: true
+
+# Ofício dá uma coisa só: +1 nos testes ligados a ele (palavra "oficio").
+oficios:
+  ferreiro:   { nome: "Ferreiro (exemplo)" }
+  curandeiro: { nome: "Curandeiro (exemplo)" }
+  escriba:    { nome: "Escriba (exemplo)" }
