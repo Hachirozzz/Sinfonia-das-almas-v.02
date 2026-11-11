@@ -16,7 +16,7 @@ settings:
     messagesLanguage: br
     # Todas as mensagens em português, qualquer que seja o idioma do jogo.
     perPlayerLocale: false
-    serverName: Servidor de RP
+    serverName: Crônicas de Serenthia
     restrictions:
         # Antes do login: sem chat e sem nenhum comando além dos de autenticação.
         allowChat: false
@@ -82,20 +82,25 @@ settings:
             showForgotPasswordButton: false
             showBody: true
             preJoin:
-                # Janela de login/registro antes de entrar no mundo: quem não se
-                # autentica nem chega a aparecer no servidor.
+                # Janela de login ANTES de entrar no mundo: desligada de propósito.
+                # No teste de 11/nov/2026 (AuthMe 6.0.1), senha errada por essa
+                # janela não contou para o captcha nem para o banimento
+                # temporário: 8 erros seguidos e a 9ª tentativa ainda entrou.
+                # Pelo caminho normal (janela ou /login depois de entrar) os
+                # limites funcionam. Reavaliar a cada versão nova do AuthMe.
                 enable: false
                 showCancelButton: true
                 allowCloseWithEscape: false
                 registerCancelKicks: true
                 loginCancelKicks: true
             postJoin:
+                # Janela de login/registro logo depois de entrar. O jogador fica
+                # parado, sem chat, sem comandos e sem inventário até se autenticar.
                 enable: true
     # O arquivo de boas-vindas padrão é em inglês; a recepção fica com o plugin de chat.
     useWelcomeMessage: false
-    # Quem erra a senha chega a entrar por um instante antes de ser expulso.
-    # Com estas duas opções ninguém vê "entrou no jogo" / "saiu do jogo" de
-    # quem não se autenticou.
+    # Ninguém vê "entrou no jogo" / "saiu do jogo" de
+    # quem ainda não se autenticou.
     delayJoinMessage: true
     removeUnloggedLeaveMessage: true
     # "Fulano" registrado: "FULANO" e "fulano" não entram. Essencial em modo

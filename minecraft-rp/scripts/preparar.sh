@@ -23,7 +23,7 @@ fi
 
 ACEITO_EULA="$(ler_env ACEITO_EULA false)"
 PORTA="$(ler_env PORTA 25565)"
-MOTD="$(ler_env MOTD 'Servidor de RP')"
+MOTD="$(ler_env MOTD 'Crônicas de Serenthia')"
 MAX_JOGADORES="$(ler_env MAX_JOGADORES 60)"
 SEMENTE="$(ler_env SEMENTE '')"
 PACK_URL="$(ler_env PACK_URL '')"
@@ -47,13 +47,13 @@ if [ -n "$PACK_URL" ]; then
   [[ "$PACK_URL" =~ ^https:// ]] || erro "PACK_URL precisa começar com https://"
   [[ "$PACK_SHA1" =~ ^[0-9a-fA-F]{40}$ ]] || erro "PACK_SHA1 precisa ser o SHA-1 do pack (40 caracteres hexadecimais)."
   PACK_OBRIGATORIO=true
-  PACK_AVISO='{"text":"Este servidor usa um pacote de recursos próprio. Aceite o download para entrar."}'
+  PACK_AVISO='{"text":"Crônicas de Serenthia usa um pacote de recursos próprio. Aceite o download para entrar."}'
 fi
 
 # --- 2. Pasta do servidor e plugins ---
 mkdir -p "$SERVIDOR"
 printf '# Aceito em .env (ACEITO_EULA=true). https://aka.ms/MinecraftEULA\neula=true\n' > "$SERVIDOR/eula.txt"
-"$RAIZ/scripts/baixar-plugins.sh"
+bash "$RAIZ/scripts/baixar-plugins.sh"
 
 # --- 3. Configs versionadas (tudo de configs/, menos os modelos) ---
 ( cd "$CONFIGS" && find . -type f ! -name '*.modelo' -print ) | while IFS= read -r arq; do

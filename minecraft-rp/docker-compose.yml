@@ -1,0 +1,57 @@
+# Sobe o mesmo servidor dos scripts, dentro do Docker (máquina do dono e produção).
+#
+#   docker compose up -d        sobe (na primeira vez baixa tudo)
+#   docker compose logs -f mc   acompanha o log; pronto quando aparecer "Done"
+#   docker compose down         para com segurança (salva o mundo)
+#
+# ATENÇÃO: este arquivo foi escrito pela documentação da imagem e NÃO foi
+# testado (a máquina onde a base foi montada não roda contêiner). O primeiro
+# "docker compose up" na máquina do dono é o teste.
+#
+# Versão do Minecraft, build do Paper e flags de JVM vêm de versoes.env.
+# Senhas e ajustes locais vêm do .env (criado sozinho na primeira subida).
+
+services:
+  # Roda uma vez antes do servidor: cria o .env se faltar, baixa os plugins de
+  # plugins.lista conferindo o hash, copia configs/ e gera o server.properties.
+  preparar:
+    image: itzg/minecraft-server:java25
+    user: "0:0"
+    entrypoint: ["bash", "/projeto/scripts/preparar.sh"]
+    environment:
+      SERVIDOR: /projeto/servidor
+      # Usuário com que a imagem roda o Minecraft (UID e GID abaixo).
+      DONO_DOS_DADOS: "1000:1000"
+    volumes:
+      - .:/projeto
+    restart: "no"
+
+  mc:
+    image: itzg/minecraft-server:java25
+    depends_on:
+      preparar:
+        condition: service_completed_successfully
+    env_file:
+      - versoes.env
+    environment:
+      # O aceite da EULA é conferido pelo serviço "preparar" (ACEITO_EULA no .env).
+      EULA: "TRUE"
+      TYPE: PAPER
+      MEMORY: ${MEMORIA:-4G}
+      UID: "1000"
+      GID: "1000"
+      TZ: America/Sao_Paulo
+      # O server.properties é o gerado por scripts/preparar.sh; a imagem não mexe nele.
+      SKIP_SERVER_PROPERTIES: "true"
+      SERVER_PORT: ${PORTA:-25565}
+      # Senha do RCON, usada pela imagem para mandar "stop" ao parar o contêiner.
+      RCON_PASSWORD_FILE: /data/.senha-rcon
+    ports:
+      # Só a porta do jogo. A do RCON (25575) nunca é publicada.
+      - "${PORTA:-25565}:${PORTA:-25565}"
+    volumes:
+      - ./servidor:/data
+    stdin_open: true
+    tty: true
+    stop_grace_period: 2m
+    restart: unless-stopped

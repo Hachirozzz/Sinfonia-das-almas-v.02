@@ -1,7 +1,7 @@
 # Só o que foi mudado de propósito; o servidor completa o resto com os padrões.
 # Valores iniciais do guia de otimização (github.com/YouHaveTrouble/minecraft-optimization).
 settings:
-  shutdown-message: Servidor fechado. Volte em instantes.
+  shutdown-message: Crônicas de Serenthia fechou por um instante. Volte logo.
 # Limite de criaturas por jogador conectado.
 spawn-limits:
   monsters: 20

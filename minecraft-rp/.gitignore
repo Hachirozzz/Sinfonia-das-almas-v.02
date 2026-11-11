@@ -4,3 +4,7 @@
 servidor/
 # Java e Paper baixados pelos scripts (modo Java puro).
 .ferramentas/
+# Bancos e logs nunca entram, nem por engano (guardam senhas com hash e IPs).
+*.db
+*.sqlite
+*.log

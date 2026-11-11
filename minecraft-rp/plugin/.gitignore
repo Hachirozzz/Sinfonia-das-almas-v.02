@@ -1,0 +1,6 @@
+# Saída de build e cache do Gradle. O .jar nunca vai para o Git.
+build/
+.gradle/
+*.jar
+# Paper de teste local (ver construir.sh e LEIAME.md).
+teste-servidor/

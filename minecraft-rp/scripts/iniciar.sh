@@ -13,9 +13,9 @@ if servidor_rodando; then
   exit 0
 fi
 
-"$RAIZ/scripts/preparar.sh"
-JAVA="$("$RAIZ/scripts/baixar-java.sh" | tail -n 1)"
-JAR="$("$RAIZ/scripts/baixar-paper.sh" | tail -n 1)"
+bash "$RAIZ/scripts/preparar.sh"
+JAVA="$(bash "$RAIZ/scripts/baixar-java.sh" | tail -n 1)"
+JAR="$(bash "$RAIZ/scripts/baixar-paper.sh" | tail -n 1)"
 MEMORIA="$(ler_env MEMORIA 4G)"
 PORTA="$(ler_env PORTA 25565)"
 ESPERA="${ESPERA_MAXIMA:-600}"
@@ -42,7 +42,7 @@ for ((i = 0; i < ESPERA; i++)); do
     info "$(grep -m1 'Done (' "$LOG")"
     # Alguns avisos (checagem de versão do Paper e de plugins) saem logo depois do "Done".
     sleep 10
-    "$RAIZ/scripts/verificar-log.sh" || true
+    bash "$RAIZ/scripts/verificar-log.sh" || true
     info "servidor no ar na porta $PORTA. No jogo: Multijogador > Conexão direta > localhost:$PORTA"
     exit 0
   fi
