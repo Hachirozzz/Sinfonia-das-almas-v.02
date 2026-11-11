@@ -1,0 +1,8 @@
+# Os scripts rodam dentro de contêiner Linux mesmo quando o repositório é
+# clonado no Windows: fim de linha tem de ser sempre LF.
+*.sh      text eol=lf
+*.env     text eol=lf
+*.exemplo text eol=lf
+*.modelo  text eol=lf
+*.lista   text eol=lf
+*.yml     text eol=lf

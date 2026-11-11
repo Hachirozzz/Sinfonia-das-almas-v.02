@@ -85,7 +85,7 @@ Categorias de ticket no painel:
 | Suporte (problema técnico, conta, senha) | Dono; na fase de 5, Moderação |
 | Denúncia | Dono; na fase de 5, Moderação |
 | Apelação | Dono; nas fases seguintes, quem julga conforme equipe.md |
-| Pedido especial (poder, facção, CK) | Dono; na fase de 5, Narração |
+| Pedido especial (raça restrita, magia, título, facção, herança) | Dono; na fase de 5, Narração |
 | Privacidade (ver ou apagar meus dados) | Dono |
 | Denúncia contra staff | Só o Dono; na fase de 15, só a Ouvidoria |
 
@@ -222,7 +222,7 @@ Resumo. O texto completo, com exemplos, está em: [LINK DO REGULAMENTO]
 11. **Amor à vida:** seu personagem tem medo de morrer e age de acordo.
 12. **Sem RDM:** nada de atacar sem motivo construído na história.
 13. **Sem combat logging:** não saia do jogo para fugir de uma cena.
-14. Morte comum (PK) não precisa do seu "sim". Morte definitiva (CK) precisa.
+14. Perder uma briga não precisa do seu "sim". Morte do personagem (CK), ferimento grave e marca permanente só com a sua autorização pelo comando do jogo, salvo dois casos raros decididos pela staff. Nenhum jogador decide isso por você nem pode te pressionar.
 15. Tortura e violência detalhada só com o "sim" de todos na cena. Qualquer um pode sair.
 ```
 
@@ -270,7 +270,7 @@ Escolha a categoria e abra um ticket. Só você e a staff veem a conversa.
 • **Suporte:** não consigo entrar, perdi a senha, conta roubada, bug
 • **Denúncia:** alguém quebrou uma regra. Tenha em mãos: nicks, data e hora, o que aconteceu e a prova (print ou clipe)
 • **Apelação:** quero contestar uma punição que recebi
-• **Pedido especial:** poder, facção, morte definitiva de personagem
+• **Pedido especial:** raça restrita, magia, título, facção, herança de itens, evento letal
 • **Privacidade:** quero ver ou apagar meus dados
 • **Denúncia contra staff:** lida só pelo dono
 
@@ -293,7 +293,7 @@ A staff não atende por mensagem privada. Se alguém te chamar no privado dizend
 2. Entre com o nick **exatamente** como escreveu no formulário. Maiúsculas e minúsculas contam.
 3. O jogo vai pedir para criar uma senha. Use uma que você não usa em mais nenhum lugar.
 4. Aceite o pacote de recursos quando o jogo perguntar.
-5. Siga as placas até o ponto de encontro. Alguém com o cargo Guia ou o dono vai estar lá.
+5. Crie o seu personagem com `/personagem criar` (o jogo pergunta um campo por vez) e siga as placas até o ponto de encontro. Alguém com o cargo Guia ou o dono vai estar lá.
 
 **Não pode nesse horário?** Escreva aqui o dia e a hora em que vai entrar e alguém te recebe.
 

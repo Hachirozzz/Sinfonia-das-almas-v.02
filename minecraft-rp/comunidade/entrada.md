@@ -78,8 +78,10 @@ usuário do Discord é capturado pelo bot e não precisa ser perguntado.
 
 Notas:
 
-- A ficha completa do personagem (aparência, personalidade, história) é feita
-  **dentro do jogo**, não no formulário. Menos barreira na entrada.
+- A ficha do personagem (nome, raça, idade, aparência, atributos, ofício) é
+  criada **dentro do jogo**, não no formulário, e não espera aprovação: a
+  staff revisa depois (ver `../sistemas/ficha.md`). História longa é
+  opcional. Menos barreira na entrada.
 - Não há amostra de RP nem entrevista por voz. Entrevista por voz não escala
   com uma pessoa e expõe menores a conversa a sós.
 - Se o bot limitar o número de perguntas, as primeiras a sair são a 3 e a 9

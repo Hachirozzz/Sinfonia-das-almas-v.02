@@ -1,0 +1,40 @@
+# Só o que foi mudado de propósito; o servidor completa o resto com os padrões.
+# Valores iniciais do guia de otimização (github.com/YouHaveTrouble/minecraft-optimization).
+config-version: 13
+settings:
+  # Quem reinicia o servidor é o Docker (restart: unless-stopped), não o Spigot.
+  restart-on-crash: false
+messages:
+  whitelist: Você ainda não está na lista de acesso deste servidor.
+  unknown-command: Comando desconhecido. Digite "/help" para ver a ajuda.
+  server-full: O servidor está cheio!
+  outdated-client: Seu jogo está desatualizado. Use a versão {0}.
+  outdated-server: O servidor ainda está na versão {0}.
+  restart: O servidor está reiniciando.
+world-settings:
+  default:
+    # Distância (em chunks) em que criaturas nascem em volta do jogador.
+    mob-spawn-range: 2
+    # Itens e orbes de experiência próximos se juntam em um só.
+    merge-radius:
+      item: 3.5
+      exp: 4.0
+    # Distância (em blocos) a partir da qual a criatura para de "pensar".
+    entity-activation-range:
+      animals: 16
+      monsters: 24
+      raiders: 48
+      misc: 8
+      water: 8
+      villagers: 16
+      flying-monsters: 48
+    # Distância (em blocos) em que a entidade é enviada ao jogador.
+    entity-tracking-range:
+      players: 48
+      animals: 48
+      monsters: 48
+      misc: 32
+      other: 64
+    ticks-per:
+      hopper-transfer: 8
+      hopper-check: 8

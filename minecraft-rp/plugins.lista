@@ -1,0 +1,22 @@
+# Lista de plugins do servidor. Um plugin por linha, seis campos separados por
+# espaço (nenhum campo pode conter espaço):
+#
+#   nome  versão  arquivo  sha512  url  página
+#
+# - arquivo: nome com que o jar é gravado em servidor/plugins/.
+# - sha512: o hash que o Modrinth publica para o arquivo (campo files[].hashes.sha512
+#   de https://api.modrinth.com/v2/project/<slug>/version). Para outra fonte,
+#   calcule com `sha512sum` depois de conferir a origem.
+# - url: link direto e imutável do arquivo (no Modrinth, o de cdn.modrinth.com).
+# - página: onde a versão foi conferida.
+#
+# Quem instala: scripts/baixar-plugins.sh (chamado por scripts/preparar.sh).
+# Para trocar de versão, edite a linha; o jar antigo é removido sozinho.
+# Jars colocados à mão em servidor/plugins/ não são tocados.
+
+# --- Autenticação (mc-infra). Conferido em 10/nov/2026; ambos declaram suporte a 26.2. ---
+AuthMe 6.0.1 AuthMe.jar 832eb1570f1887493dc09bd183360c6c890aafe24fbc635d36f7c3162c339f064e3a0e082519defe7e67569c1d78072f582cb49c14a24d125d4ece463b765271 https://cdn.modrinth.com/data/9js4IEHC/versions/fPuH4uYs/AuthMe-6.0.1-Paper.jar https://modrinth.com/plugin/authmereloaded/version/fPuH4uYs
+# PacketEvents: exigido pelo AuthMe para o login automático de conta original e para proteger o inventário antes do login.
+PacketEvents 2.14.0 PacketEvents.jar 18a942cb55f64783a63b28deea2cebbbe782e5d6a1089f6700430e183bfbce0a45398a640ed0dff4361b55190dcf47017f2ca7788f4a5c8c9efad1f549a63fe3 https://cdn.modrinth.com/data/HYKaKraK/versions/m78nFxYg/packetevents-spigot-2.14.0.jar https://modrinth.com/plugin/packetevents/version/m78nFxYg
+
+# --- Jogabilidade e administração (mc-plugins): acrescente abaixo, no mesmo formato. ---

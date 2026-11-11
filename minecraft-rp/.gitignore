@@ -2,3 +2,5 @@
 *.jar
 .env
 servidor/
+# Java e Paper baixados pelos scripts (modo Java puro).
+.ferramentas/

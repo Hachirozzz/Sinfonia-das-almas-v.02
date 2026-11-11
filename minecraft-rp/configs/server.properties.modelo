@@ -1,0 +1,100 @@
+# Modelo do server.properties. NÃO edite servidor/server.properties: ele é
+# regerado a partir deste arquivo a cada inicialização (scripts/preparar.sh).
+# Os campos {{ASSIM}} vêm do .env. Chaves conferidas no Paper 26.2 build 135.
+
+# --- Contas e acesso ---
+# Modo offline: aceita conta original e não original. Quem protege os nicks é o
+# plugin de login (AuthMe), configurado em configs/plugins/AuthMe/config.yml.
+online-mode=false
+# Conta não original não assina o chat, então a exigência fica desligada.
+enforce-secure-profile=false
+# Whitelist ligada durante o desenvolvimento. Liberar alguém: "whitelist add Nick".
+white-list=true
+enforce-whitelist=true
+max-players={{MAX_JOGADORES}}
+prevent-proxy-connections=false
+player-idle-timeout=0
+hide-online-players=false
+# Registrar IP no log é necessário para moderação (banimento, contas duplicadas).
+log-ips=true
+op-permission-level=4
+function-permission-level=2
+accepts-transfers=false
+
+# --- Rede ---
+server-ip=
+server-port={{PORTA}}
+motd={{MOTD}}
+enable-status=true
+enable-query=false
+query.port=25565
+# Valor inicial do guia de otimização (github.com/YouHaveTrouble/minecraft-optimization).
+network-compression-threshold=256
+use-native-transport=true
+rate-limit=0
+status-heartbeat-interval=0
+
+# --- Desempenho (valores iniciais do mesmo guia; ajustar com o spark em uso real) ---
+view-distance=7
+simulation-distance=4
+entity-broadcast-range-percentage=100
+sync-chunk-writes=true
+max-tick-time=60000
+max-chained-neighbor-updates=1000000
+region-file-compression=deflate
+pause-when-empty-seconds=-1
+
+# --- Mundo ---
+level-name=world
+level-seed={{SEMENTE}}
+level-type=minecraft\:normal
+generator-settings={}
+generate-structures=true
+# Borda do mundo: raio máximo, em blocos, que a borda vanilla pode ter em
+# qualquer dimensão. 3000 = mapa de 6000 x 6000. Dá para aumentar depois;
+# diminuir deixa terreno já explorado do lado de fora.
+max-world-size=3000
+spawn-protection=16
+initial-enabled-packs=vanilla
+initial-disabled-packs=
+
+# --- Jogo (padrões do Minecraft; as regras de RP são definidas por outro agente) ---
+gamemode=survival
+force-gamemode=false
+difficulty=easy
+hardcore=false
+allow-flight=false
+chat-spam-threshold-seconds=10
+command-spam-threshold-seconds=10
+
+# --- Resource pack (PACK_URL e PACK_SHA1 no .env; obrigatório quando há URL) ---
+resource-pack={{PACK_URL}}
+resource-pack-sha1={{PACK_SHA1}}
+resource-pack-id=
+require-resource-pack={{PACK_OBRIGATORIO}}
+resource-pack-prompt={{PACK_AVISO}}
+
+# --- Console remoto e gerenciamento ---
+# RCON ligado para o contêiner parar o servidor com segurança e para o backup.
+# A porta 25575 nunca é publicada para fora.
+enable-rcon=true
+rcon.port=25575
+rcon.password={{SENHA_RCON}}
+broadcast-rcon-to-ops=false
+broadcast-console-to-ops=true
+management-server-enabled=false
+management-server-host=localhost
+management-server-port=0
+management-server-secret={{SEGREDO_GERENCIAMENTO}}
+management-server-tls-enabled=true
+management-server-tls-keystore=
+management-server-tls-keystore-password=
+management-server-allowed-origins=
+enable-jmx-monitoring=false
+
+# --- Diversos ---
+debug=false
+bug-report-link=
+enable-code-of-conduct=false
+text-filtering-config=
+text-filtering-version=0

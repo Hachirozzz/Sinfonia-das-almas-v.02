@@ -1,0 +1,73 @@
+# Só o que foi mudado de propósito; o Paper completa o resto com os padrões.
+# Valores iniciais do guia de otimização (github.com/YouHaveTrouble/minecraft-optimization).
+# Ficaram de fora, por mudarem a jogabilidade: sumiço rápido de itens no chão,
+# aldeões mais lentos e anti-xray. Decidir com o spark em mãos.
+_version: 31
+chunks:
+  delay-chunk-unloads-by: 10s
+  max-auto-save-chunks-per-tick: 8
+  # Impede o jogador de entrar em chunk ainda não carregado (evita travadas).
+  prevent-moving-into-unloaded-chunks: true
+  # Máximo de projéteis de cada tipo gravados por chunk.
+  entity-per-chunk-save-limit:
+    experience_orb: 16
+    arrow: 16
+    dragon_fireball: 3
+    egg: 8
+    ender_pearl: 8
+    eye_of_ender: 8
+    fireball: 8
+    small_fireball: 8
+    firework_rocket: 8
+    llama_spit: 3
+    shulker_bullet: 8
+    snowball: 8
+    spectral_arrow: 16
+    experience_bottle: 3
+    trident: 16
+    wither_skull: 4
+    area_effect_cloud: 8
+collisions:
+  max-entity-collisions: 2
+  fix-climbing-bypassing-cramming-rule: true
+entities:
+  spawning:
+    per-player-mob-spawns: true
+    # Distância em que criaturas somem: "soft" aos poucos, "hard" na hora.
+    despawn-ranges:
+      ambient:
+        hard: 56
+        soft: 30
+      axolotls:
+        hard: 56
+        soft: 30
+      creature:
+        hard: 56
+        soft: 30
+      misc:
+        hard: 56
+        soft: 30
+      monster:
+        hard: 56
+        soft: 30
+      underground_water_creature:
+        hard: 56
+        soft: 30
+      water_ambient:
+        hard: 56
+        soft: 30
+      water_creature:
+        hard: 56
+        soft: 30
+environment:
+  optimize-explosions: true
+  # Mapas do tesouro procuram estruturas longe e travam o servidor. Reavaliar
+  # depois que o mundo estiver pré-gerado e com borda.
+  treasure-maps:
+    enabled: false
+hopper:
+  ignore-occluding-blocks: true
+misc:
+  redstone-implementation: ALTERNATE_CURRENT
+tick-rates:
+  mob-spawner: 2

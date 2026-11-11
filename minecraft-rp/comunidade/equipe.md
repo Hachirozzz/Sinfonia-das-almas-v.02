@@ -195,8 +195,9 @@ quem foi denunciado, nem pela staff. Denúncia falsa de propósito é infração
   explicando o motivo no registro. Exemplos: RDM em massa, uso de cheat,
   abuso de bug com prejuízo a outros.
 - **Medidas que não são punição** e podem acompanhar qualquer degrau: desfazer
-  o resultado da cena, devolver itens, anular um CK irregular, afastamento
-  obrigatório entre dois jogadores.
+  o resultado da cena, devolver itens, anular um desfecho obtido por pressão,
+  devolver uma ficha para correção, afastamento obrigatório entre dois
+  jogadores.
 - No Discord, o equivalente à suspensão é o castigo temporário (timeout) pelo
   mesmo prazo.
 
@@ -234,7 +235,8 @@ Toda punição gera uma linha no registro privado da staff (canal
 | --- | --- |
 | Data | 14/03, 21h40 |
 | Jogador | nick e usuário do Discord |
-| Regra | 6.1, RDM |
+| Regra | Regulamento 6.1, RDM |
+| Tipo | punição / decisão de morte ou ferimento sem consentimento (regras detalhadas, 2.1) |
 | Prova | link do ticket |
 | Punição e prazo | Advertência; conta para a escala até 12/06 |
 | Aplicada por | nome do staff |

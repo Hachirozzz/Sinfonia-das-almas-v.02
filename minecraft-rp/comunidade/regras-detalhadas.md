@@ -3,118 +3,213 @@
 Complemento do [regulamento.md](regulamento.md). Se houver conflito entre os
 dois textos, vale o regulamento.
 
-Os trechos marcados com **[A combinar com mc-sistemas]** dependem da mecânica
-de conflito e de morte, que ainda está sendo definida. A parte de conduta já
-vale; os números entre colchetes são propostas.
+A **mecânica** de conflito, ferimento e morte (comandos, números, prazos) está
+em [../sistemas/conflito.md](../sistemas/conflito.md) e a de personagens em
+[../sistemas/ficha.md](../sistemas/ficha.md). Este arquivo trata da
+**conduta**: o que se espera de quem joga. Os números citados aqui são os da
+versão 0.1 daqueles arquivos; se mudarem lá, vale o que estiver lá.
 
-## 1. Combate
+Os poucos pontos ainda em aberto estão marcados com **[A combinar com
+mc-sistemas]**.
 
-### 1.1 Antes do primeiro golpe
+## 1. Conflito
+
+### 1.1 Como um conflito se resolve
+
+São três modos, descritos em `conflito.md`:
+
+- **Emote:** cada um escreve a tentativa do seu personagem e o outro diz o que
+  aconteceu com o dele. Vale enquanto todos concordarem.
+- **Dados:** qualquer envolvido pode pedir. Pediu, vale o dado.
+- **Duelo** (combate do próprio Minecraft): só se os dois aceitarem. Recusar
+  não tem custo e ninguém pode cobrar isso de você.
+
+Fora de um duelo aceito, o jogo não deixa um jogador causar dano a outro.
+
+### 1.2 Antes do primeiro golpe
 
 - Todo conflito físico precisa de **motivo dentro da história** e de
   **interação antes**: uma ameaça, uma discussão, uma ordem de rendição. Quem
-  ataca sem isso comete RDM (matar ou agredir sem motivo construído).
-- Assalto, sequestro e emboscada são permitidos, desde que a vítima tenha
-  chance real de falar e de reagir.
-- Novato com menos de [7 dias] de servidor não pode ser alvo de assalto,
-  sequestro nem CK. Ele pode entrar em conflito se ele mesmo começar.
-  **[A combinar com mc-sistemas: como identificar o novato no jogo.]**
+  ataca sem isso comete RDM.
+- Isso vale para os três modos. **Usar o comando de ataque em quem você não
+  interagiu é RDM**, mesmo que o pior resultado seja um ferimento leve.
+- Usar o ataque repetidas vezes para importunar alguém, ou esperar o prazo de
+  proteção acabar para atacar de novo sem história nova, é assédio (seção 6).
+- Emboscada é permitida, desde que exista motivo anterior e que a vítima
+  possa responder (defender, fugir ou render-se) quando ela começa.
+- **Novato:** conta com menos de 7 dias de servidor não pode ser alvo do
+  comando de ataque, a menos que tenha atacado primeiro; o jogo bloqueia e
+  mostra a marca de novato ao passar o mouse sobre o nome. Pela conduta,
+  novato também não é alvo de detenção nem de pedido de consentimento para
+  morte. Provocar um novato até ele atacar, para poder revidar, é assédio.
+- **Zona de paz:** onde a staff marcar (por exemplo, a cidade de chegada), os
+  comandos de ataque e de duelo não funcionam. Não leve uma briga para a
+  beira da zona para atacar quem sair.
 
-### 1.2 Durante a cena
+### 1.3 Durante a cena
 
 - Descreva a **tentativa**, não o resultado. "Tenta derrubar o guarda com o
   ombro" está certo; "derruba o guarda e quebra o braço dele" é powergaming.
-- Aceite perder. Esquivar de tudo, ignorar ferimentos ou tirar da manga um
-  recurso que o personagem não tinha é **godmodding** (tornar o personagem
-  invencível), tratado como powergaming.
-- Ferimento sofrido continua valendo depois da luta. Quem levou uma flechada
-  na perna não sai correndo na cena seguinte.
-- Como o resultado é decidido (rolagem de dados, combate do próprio Minecraft
-  ou os dois): **[A combinar com mc-sistemas.]**
+- Aceite perder de vez em quando. Esquivar de tudo no emote, ignorar o que o
+  dado mostrou ou tirar da manga um recurso que o personagem não tinha é
+  **godmodding** (tornar o personagem invencível), tratado como powergaming.
+- Quem vence narra o que aconteceu **sem exagerar**: uma disputa ganha é um
+  golpe que entrou, não um braço arrancado.
+- Derrota e ferimento continuam valendo depois da luta. Quem está ferido
+  interpreta o ferimento.
+- **Amor à vida vale mesmo sabendo que o personagem não morre sem o seu
+  "sim".** O personagem não sabe disso. Cercado, ele tem medo.
 - Entrada de terceiros numa luta já começada: só com motivo IC (ouviu o
   barulho, é guarda de serviço, é aliado presente). Chamar reforço pelo
-  Discord é metagaming. Se haverá limite de tempo ou de número de pessoas:
-  **[A combinar com mc-sistemas.]**
-- Dúvida ou discordância OOC no meio da luta: uma mensagem curta entre
-  parênteses duplos, combinem e sigam. Se não houver acordo, terminem a cena
-  da forma menos grave para os dois lados e abram um ticket depois. Ninguém
-  para a cena para discutir regra.
+  Discord ou pelo chat global é metagaming.
+- **Discordou de uma regra no meio da cena?** Pausa de até 2 minutos no chat
+  fora do personagem local. Sem acordo, vale o que o dado mostrou, a cena
+  segue, e quem se sentiu prejudicado abre um ticket depois. A staff só desfaz
+  um resultado quando houve quebra de regra.
 
-### 1.3 Sair da cena
+### 1.4 Depois da derrota
 
-- Desconectar para fugir de luta, prisão, assalto ou morte é **combat
-  logging**. Se a conexão caiu, volte assim que puder e avise na cena ou por
-  ticket.
-- Precisa mesmo sair (vida real vem primeiro)? Avise em OOC e combinem uma
-  saída rápida e coerente. Quem avisa não é punido.
-- Punição mecânica para quem desconecta em combate: **[A combinar com
-  mc-sistemas.]**
+Quem vence escolhe **um** desfecho entre os previstos em `conflito.md`:
+deixar ir, expulsar do local, desarmar (só na narração) ou deter.
 
-## 2. Morte de personagem
+- **Detenção:** no máximo 30 minutos de tempo real, com os dois online, e com
+  cena acontecendo. Deter alguém e sair de perto, ou deixar a pessoa sem ter o
+  que fazer, é anti-RP. O detido pode pedir o fim da detenção a qualquer
+  momento se precisar sair do jogo; quem detém combina um fim rápido.
+- **Itens e moedas:** nesta fase, **ninguém toma nada de ninguém sem o acordo
+  do dono**, dito fora do personagem. "Assalto" existe como cena e ameaça; a
+  bolsa só muda de mão se o jogador concordar. Abrir baú alheio, pegar item
+  de quem desmaiou e se aproveitar de bug para levar algo é roubo OOC e é
+  punido.
+- **Trégua:** o derrotado não inicia novo conflito contra quem o venceu por
+  24 horas de tempo real. O vencedor também não volta a provocar o derrotado
+  nesse prazo para forçar uma revanche.
+- **Memória:** o personagem derrotado **lembra** do que aconteceu. Não há
+  "morreu, esqueceu" neste servidor.
 
-### 2.1 PK (morte comum)
+### 1.5 Sair da cena
 
-- O personagem é derrotado, **sobrevive ferido** e **esquece os detalhes
-  imediatos** da cena que o derrubou: quem deu o golpe, o que foi dito nos
-  últimos instantes.
-- Ele lembra do que veio antes: sabia que tinha um inimigo, sabia para onde
-  estava indo.
-- Ele não volta àquele conflito por [30 minutos ou até a cena terminar].
-  **[A combinar com mc-sistemas: prazo, onde o personagem reaparece e o que
-  acontece com os itens.]**
-- PK **não exige consentimento**, mas exige motivo (seção 1.1).
-- Usar a memória "esquecida" para se vingar é metagaming.
+- Desconectar para fugir de conflito, detenção ou cena difícil é **combat
+  logging**. No duelo, o jogo já conta como derrota.
+- Quem desconecta no meio de um conflito por dados ou de um duelo volta como
+  derrotado, com ferimento leve, e o caso fica registrado. O jogo faz isso
+  sozinho. Repetir é infração.
+- A conexão caiu? Volte assim que puder e avise na cena ou por ticket. A
+  staff remove o ferimento.
+- Precisa mesmo sair (vida real vem primeiro)? Avise fora do personagem e
+  use a rendição, que encerra o conflito na hora e sem ferimento. Quem avisa
+  não é punido.
 
-### 2.2 CK (morte definitiva)
+### 1.6 Construções e terras
 
-Um CK só acontece em um destes casos:
+- É proibido destruir, alterar ou ocupar construção de outro jogador sem
+  evento conduzido pela staff ou autorização dela por ticket.
+- Disputa por terra entre personagens se resolve na história (negociação,
+  julgamento, duelo aceito), nunca quebrando blocos. Regras de posse e de
+  proteção de terreno: **[A combinar com mc-sistemas e mc-lore.]**
 
-1. **O jogador do personagem concorda**, por escrito (no chat OOC ou por
-   ticket).
-2. **Cláusula aceita antes**: o jogador pediu um poder, um cargo de risco ou
-   entrou em um evento anunciado como letal, e aceitou por escrito que isso
-   podia custar o personagem.
-3. **Decisão da staff**, após pedido por ticket de quem quer aplicar o CK, com
-   a história que justifica. Só é concedido quando o personagem-alvo
-   desprezou o amor à vida de forma grave e repetida. O jogador-alvo é ouvido
-   antes da decisão.
+## 2. Derrota, desmaio e morte
 
-Outras regras do CK:
+Quatro situações diferentes, que em outros servidores se misturam nos termos
+PK e CK:
 
-- Ninguém pressiona outra pessoa a aceitar um CK. Insistir depois de um "não"
-  é assédio OOC.
-- Suicídio do personagem é CK e não tem volta. A cena não é descrita em
-  detalhe (ver seção 4.2).
-- Depois do CK, o novo personagem **não herda** memórias, bens, cargos nem
-  vinganças do anterior. O que acontece com os bens do personagem morto:
-  **[A combinar com mc-sistemas.]**
-- Prazo mínimo entre o CK e a entrada do novo personagem na mesma trama:
-  [7 dias].
-- Como o CK é registrado no jogo (ficha arquivada, nome liberado ou não):
-  **[A combinar com mc-sistemas.]**
+| | O que é | Consequência | Precisa do seu "sim"? |
+| --- | --- | --- | --- |
+| **Desmaio** | A morte do Minecraft: queda, afogamento, monstro | Volta ao ponto de retorno. Nenhuma consequência na ficha | Não |
+| **Derrota** (o "PK" de outros servidores) | Perder um conflito para outro personagem | Fora de combate por um tempo, ferimento leve e um desfecho escolhido pelo vencedor | Não. Precisa de motivo (seção 1.2) |
+| **Ferimento grave e marca permanente** | Sequela pesada, cicatriz, perda de membro | Penalidade longa, ou mudança definitiva na aparência | **Sim**, pelo comando de consentimento (ou os dois casos da seção 2.1) |
+| **Morte do personagem** (CK) | O fim definitivo do personagem | Ficha arquivada, com os itens | **Sim**, pelo comando de consentimento (ou os dois casos da seção 2.1) |
 
-### 2.3 Ferimento permanente
+### 2.1 A regra da morte
 
-Mutilação, cegueira, perda de memória duradoura e qualquer sequela que mude o
-personagem para sempre seguem as mesmas três condições do CK.
+**Nenhum resultado de dado, de duelo ou de comando de outro jogador mata,
+fere gravemente ou marca para sempre um personagem sem o dono dele consentir
+pelo comando do jogo.**
+
+Só existem dois casos sem o comando do dono. Os dois passam pela staff, nunca
+por outro jogador, e ficam registrados com o motivo:
+
+1. **Cláusula aceita antes, por escrito.** O jogador pediu um poder, um posto
+   de risco ou se inscreveu em um evento anunciado como letal, e aceitou no
+   ticket que isso podia custar o personagem. Evento letal é sempre anunciado
+   assim antes, e ninguém entra nele por acaso.
+2. **Decisão da staff por ticket.** Alguém pede, contando a história que
+   justifica; o jogador-alvo é ouvido antes; e só é concedido quando o
+   personagem desprezou o amor à vida de forma **grave e repetida**, depois
+   de o jogador já ter sido advertido por isso (seção 2.3).
+
+No caso 2, quem decide não pode estar envolvido na cena (regra de impedimento
+em [equipe.md](equipe.md)). Na fase de uma pessoa só, se o dono estiver
+envolvido, o caso espera a segunda opinião do Conselheiro. A decisão pode ser
+apelada como qualquer punição, e o personagem fica intocado até a apelação
+ser julgada.
+
+- O consentimento vale para um personagem, diante de uma pessoa, por tempo
+  curto, e pode ser cancelado até o desfecho. Tudo fica registrado.
+- "Combinei com ele no Discord" não vale. Só vale o comando.
+- Narrador pode avisar, no meio de uma cena, que ela é perigosa. Isso sozinho
+  não é cláusula: sem inscrição prévia por escrito, vale o comando.
+- O dono do personagem pode encerrar a história dele quando quiser:
+  aposentando o personagem (ele sai vivo) ou pedindo o desfecho de morte numa
+  cena.
+- Suicídio de personagem não é descrito em detalhe (seção 4.2). Prefira a
+  aposentadoria ou um desfecho combinado com um narrador.
+
+### 2.2 O que conta como pressão
+
+Pedir **uma vez**, fora do personagem, é permitido. A partir daí, qualquer
+uma destas atitudes é quebra de regra, tratada como assédio (seção 6):
+
+- insistir depois de um "não" ou de um silêncio;
+- cobrar ("você prometeu", "todo mundo aceita", "senão a cena não tem
+  graça");
+- oferecer ou negar algo em troca: item, moeda, vaga em facção, participação
+  em evento;
+- usar a facção, o grupo de amigos ou o chat global para constranger;
+- prender o personagem em cena, ou repetir conflitos, até a pessoa ceder;
+- tratar mal, IC ou OOC, quem recusou.
+
+Recusar não precisa de justificativa e não tem consequência nenhuma. Isso
+vale também para a staff e para o dono.
+
+### 2.3 E quem abusa da proteção?
+
+Como o personagem não morre sem consentimento, alguém pode jogar como se
+fosse imortal: provocar todo mundo, entrar sozinho em território inimigo,
+rir de ameaças. Isso é quebra de **amor à vida** e é punido pela escala comum
+(orientação, advertência, suspensão). A primeira resposta é sempre a punição
+ao jogador. Só se ele continuar depois de advertido é que alguém pode pedir à
+staff o caso 2 da seção 2.1.
+
+### 2.4 Depois da morte ou da aposentadoria
+
+- A vaga volta a ficar livre depois de alguns dias (3, na versão atual).
+- O novo personagem **não herda** memórias, relações, cargos nem vinganças do
+  anterior. Usar o que o personagem morto sabia é metagaming.
+- Os itens ficam arquivados com o personagem. Herança para outro personagem é
+  pedido por ticket, e só é aceita com justificativa na história; nunca para
+  um personagem da mesma conta levar tudo.
 
 ## 3. Consentimento
 
 Consentimento é o "sim" do **jogador**, dado fora do personagem. O "sim" do
 personagem não basta.
 
-| Situação | Precisa de consentimento OOC? |
+| Situação | Precisa de consentimento? |
 | --- | --- |
-| Conflito comum, briga, assalto, prisão, PK | Não. Precisa de motivo IC. |
-| CK e ferimento permanente | Sim (ou os casos 2 e 3 da seção 2.2). |
-| Tortura, violência descrita em detalhe, terror pesado | Sim, de **todos** os presentes na cena. |
-| Romance entre personagens | Sim, dos dois jogadores. Ver seção 5. |
-| Controlar o personagem de outra pessoa (falar ou agir por ele) | Sim, sempre. |
-| Conteúdo proibido (seção 4.1) | Não existe consentimento que libere. |
+| Conflito comum, briga, ameaça, detenção, derrota | Não. Precisa de motivo IC |
+| Duelo (combate do Minecraft) | Sim: o aceite do duelo no jogo |
+| Tomar item ou moeda | Sim, dito no chat fora do personagem |
+| Ferimento grave, marca permanente, morte | Sim, pelo comando de consentimento |
+| Tortura, violência descrita em detalhe, terror pesado | Sim, de **todos** os presentes na cena, no chat fora do personagem |
+| Romance entre personagens | Sim, dos dois jogadores. Ver seção 5 |
+| Controlar o personagem de outra pessoa (falar ou agir por ele) | Sim, sempre |
+| Conteúdo proibido (seção 4.1) | Não existe consentimento que libere |
 
 Como pedir e como recusar:
 
-- Peça em OOC, antes: `((posso descrever a tortura? pode dizer não))`.
+- Peça antes, no chat fora do personagem local:
+  `(( posso descrever a tortura? pode dizer não ))`.
 - "Não" encerra o assunto. Não se pede justificativa.
 - Quem consentiu pode **retirar** o consentimento a qualquer momento. A cena
   então corta (ver "fade to black" abaixo) ou a pessoa sai dela sem punição.
@@ -124,7 +219,16 @@ Como pedir e como recusar:
 
 **Fade to black** (corte de cena): em vez de descrever o momento pesado, os
 jogadores combinam o resultado em uma linha e pulam para depois. Exemplo:
-`((fade: ele foi interrogado a noite toda e contou onde está o mapa))`.
+`(( fade: ele foi interrogado a noite toda e contou onde está o mapa ))`.
+
+**Emotes de violência:** mesmo em conflito comum, a descrição fica no nível
+de um livro de aventura. Detalhe de ferida, sofrimento prolongado e crueldade
+só com o consentimento de todos (seção 4.2). Violência sexual, nunca.
+
+**Para contestar um conflito:** ticket na categoria Denúncia, em até 7 dias,
+dizendo o nick do outro jogador, o dia e a hora. Não precisa de print das
+rolagens: a staff consulta o registro do jogo. O que foi dito só por voz não
+vale como prova.
 
 ## 4. Conteúdo sensível
 
@@ -279,3 +383,93 @@ Voz por proximidade é opcional e não está ativa no início. Quando existir:
   4. Punições que a conta recebeu no período são revistas. Se a senha era
      emprestada, repetida de outro site ou óbvia, a punição pode ser mantida.
 - Perdeu a senha sem roubo? Mesmo caminho: ticket pelo Discord da candidatura.
+
+## 9. Personagens, pedidos e facções
+
+### 9.1 Mais de um personagem
+
+- Cada conta pode ter mais de um personagem (duas vagas, na versão atual),
+  com um ativo por vez.
+- **Personagens da mesma conta não se conhecem e não se ajudam.** É proibido
+  passar item, moeda ou informação de um para o outro, direta ou
+  indiretamente (por um amigo, por um baú).
+- É proibido colocar os dois na mesma trama, facção rival ou conflito, e
+  trocar de personagem para escapar de uma cena.
+
+### 9.2 Ficha
+
+- Personagem comum não espera aprovação: confirmou a ficha, joga. A staff
+  revisa depois e pode **devolver** a ficha com um recado.
+- Devolução não é punição. Ignorar a devolução por mais de 7 dias é.
+- Motivos comuns de devolução: nome fora do tema ou de personagem famoso,
+  aparência que descreve poder, posto ou riqueza que o personagem não tem,
+  conteúdo da seção 4.
+
+### 9.3 Pedidos especiais
+
+Raça restrita, magia ou dom sobrenatural, título, nobreza, comando de tropa,
+liderança de povoado, mudança de nome ou raça, herança de itens e retorno de
+personagem aposentado: por ticket, categoria **Pedido especial**, antes de
+jogar com aquilo.
+
+- Resposta em até 7 dias.
+- Critério: coerência com a lore, fraquezas claras e histórico do jogador
+  (sem punição nos últimos 30 dias).
+- Nenhum pedido é aprovado, apressado ou priorizado por pagamento, amizade
+  ou cargo. Pedido de membro da staff, inclusive do dono, é registrado no
+  mesmo canal que os outros.
+- Aprovação pode ser retirada se o jogador abusar do que recebeu.
+
+### 9.4 Facções de jogadores
+
+Povoados, bandos, casas de comércio e seitas criados por jogadores são
+bem-vindos.
+
+- **Para fundar:** 3 personagens de 3 contas diferentes, um líder
+  responsável, um parágrafo dizendo o que o grupo é e a qual das facções do
+  mundo se liga ou se opõe. Pedido por ticket.
+- **O líder responde** pela conduta do grupo em cena: facção usada para
+  perseguir um jogador é dissolvida.
+- **Atividade:** facção com menos de 3 membros ativos por 30 dias é
+  arquivada. Pode voltar com novo pedido.
+- Facção não dá poder mecânico nem direito sobre terra por si só.
+- Membro da staff que lidera facção não julga caso nem aprova pedido dela.
+
+## 10. Decisões para o dono confirmar
+
+Valem para este arquivo e para o regulamento.
+
+1. **Morte, ferimento grave e marca permanente só com consentimento, mais
+   dois casos aplicados só pela staff** (cláusula aceita antes; decisão por
+   ticket depois de advertência e de ouvir o jogador). Justificativa: dá saída
+   para o "personagem imortal" sem deixar um jogador matar o personagem de
+   outro. Alternativa, mais simples para uma pessoa só: nenhuma exceção, nem
+   para a staff, e o abuso tratado apenas com punição ao jogador. O
+   `mc-sistemas` lista a mesma escolha na decisão 3 de `conflito.md`; as duas
+   precisam da mesma resposta.
+2. **O derrotado lembra de tudo** (sem "morreu, esqueceu"). Justificativa:
+   esquecimento obrigatório é a maior fonte de denúncia de metagaming em
+   outros servidores, e aqui a derrota já tem trégua de 24 horas.
+3. **Nada de tomar item sem acordo, e abrir baú alheio é infração.**
+   Justificativa: acompanha a mecânica atual; assalto com perda real só deve
+   existir quando houver regra de roubo fechada.
+4. **Novato protegido por 7 dias**, pelo jogo (não pode ser atacado) e pela
+   conduta (não é detido nem recebe pedido de consentimento para morte).
+   Justificativa: a primeira semana é quando mais gente desiste.
+5. **Sem área adulta e sem conteúdo sexual de nenhum tipo.** Justificativa:
+   há adolescentes, e verificar idade de verdade está fora do alcance de um
+   servidor mantido por uma pessoa.
+6. **Romance leve permitido, com consentimento dos dois jogadores.**
+   Justificativa: proibir tudo é impossível de fiscalizar em RP medieval
+   (casamentos, alianças); o limite claro é "nenhum conteúdo sexual".
+   Alternativa mais segura: proibir romance entre personagens de jogadores.
+7. **Idade mínima de 13 anos.** Justificativa: é a do Discord, por onde todo
+   mundo entra.
+8. **Uma conta por pessoa; troca de nick só por ticket.** Justificativa: em
+   modo offline o nick é a identidade.
+9. **Conta roubada: a staff restaura o que os registros permitirem, sem
+   garantia.** Justificativa: prometer devolução total cria obrigação que uma
+   pessoa não consegue cumprir.
+10. **Facção de jogadores com mínimo de 3 contas.** Justificativa: número
+    baixo o bastante para um servidor de 20 jogadores.
+11. **Palavra de leitura no regulamento ("lamparina").** Trocar quando vazar.

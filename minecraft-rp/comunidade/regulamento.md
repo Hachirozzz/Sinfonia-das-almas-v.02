@@ -15,14 +15,15 @@ espírito: brecha não é defesa.
 | Termo | O que é | Exemplo |
 | --- | --- | --- |
 | **IC** (in character) | Tudo o que o seu personagem diz e faz dentro da história. | "Boa noite, taverneiro" é IC. |
-| **OOC** (out of character) | Tudo o que você, jogador, diz fora da história. | "((volto em 5 min))" é OOC. |
+| **OOC** (out of character) | Tudo o que você, jogador, diz fora da história. | "(( volto em 5 min ))" é OOC. |
 | **Metagaming (MG)** | Usar na história algo que só você sabe, e o personagem não. | Ir até um esconderijo porque um amigo contou no Discord. |
 | **Powergaming (PG)** | Impor o resultado de uma ação sem dar chance de reação, ou fazer o impossível. | Escrever "corta a cabeça dele" em vez de "tenta acertar o pescoço". |
 | **Amor à vida** | Seu personagem tem medo de morrer e age de acordo. | Cercado por três lâminas, ele entrega a bolsa em vez de sacar a faca. |
 | **RDM** | Atacar ou matar sem motivo construído na história. | Esfaquear um desconhecido que acabou de chegar na praça. |
 | **Combat logging** | Sair do jogo para escapar de uma cena. | Desconectar no meio de uma prisão. |
 | **Anti-RP** | Quebrar a cena agindo fora do personagem sem necessidade. | Pular em cima da mesa e falar de futebol durante um julgamento. |
-| **PK** | Morte comum: o personagem cai, sobrevive e esquece o que o derrubou. | Perdeu o duelo, acorda ferido e não lembra do rosto do agressor. |
+| **Emote** | Mensagem que descreve o que o personagem faz, em vez do que ele fala. | Digitar `*puxa a cadeira e senta` mostra "Aldara puxa a cadeira e senta". |
+| **Derrota** (o "PK" de outros servidores) | Perder um conflito: o personagem sai da cena ferido de leve, vivo e lembrando de tudo. | Perdeu a briga, é posto para fora da taverna e passa dois dias com o braço dolorido. |
 | **CK** | Morte definitiva do personagem. | O personagem é executado e o jogador cria outro do zero. |
 
 ## 2. Convivência (vale no jogo, no Discord e em mensagem privada)
@@ -57,9 +58,12 @@ O servidor aceita contas originais e não originais.
 
 1. O que acontece IC fica IC. Briga entre personagens não é briga entre
    jogadores.
-2. Fale OOC só quando precisar, marcando com parênteses duplos: `((assim))`.
+2. Fale OOC só quando precisar, começando a mensagem com `(`. Ela aparece
+   para quem está perto como `(( assim ))`.
 3. Nome, skin e ficha combinam com um mundo de fantasia medieval. Todo
    personagem começa sem poderes, títulos ou riquezas especiais.
+4. Se você tiver mais de um personagem, eles não se conhecem e não se ajudam:
+   nada de passar item ou informação de um para o outro.
 
 ## 5. Jogo limpo na história
 
@@ -75,12 +79,22 @@ O servidor aceita contas originais e não originais.
 ## 6. Conflito e morte
 
 1. **Sem RDM.** Toda agressão precisa de motivo na história e de interação
-   antes do primeiro golpe.
-2. **Sem combat logging.** Caiu a conexão? Volte e avise.
-3. **PK não precisa do seu consentimento. CK precisa**, salvo os casos
-   descritos nas regras detalhadas. Ferimento permanente segue a regra do CK.
-4. É proibido destruir ou saquear construções de outros sem evento ou
-   autorização da staff.
+   antes do primeiro golpe. Vale também para o comando de ataque.
+2. Conflito se resolve por emote enquanto todos concordam. Qualquer envolvido
+   pode pedir os dados, e aí vale o dado. Duelo com o combate do Minecraft só
+   se os dois aceitarem.
+3. **Sem combat logging.** Caiu a conexão? Volte e avise. Precisa sair?
+   Avise e renda-se.
+4. **Derrota não precisa do seu consentimento. Morte, ferimento grave e marca
+   permanente só acontecem se você autorizar pelo comando do jogo.** Nenhum
+   jogador decide isso por você. Há dois casos raros que passam pela staff,
+   descritos nas regras detalhadas. Pedir uma vez é permitido; insistir é
+   assédio.
+5. Quem tem menos de 7 dias de servidor não pode ser atacado, a não ser que
+   ataque primeiro.
+6. Ninguém toma item ou moeda de outro personagem sem o acordo do dono.
+7. É proibido destruir, alterar ou saquear construções e baús de outros sem
+   evento ou autorização da staff.
 
 ## 7. Temas pesados
 
@@ -112,3 +126,6 @@ Microsoft.
 
 Mudanças neste regulamento são anunciadas no Discord com data e resumo do que
 mudou. Como tratamos seus dados: [privacidade.md](privacidade.md).
+
+As escolhas deste regulamento que dependem de confirmação do dono estão
+listadas em [regras-detalhadas.md](regras-detalhadas.md), seção 10.

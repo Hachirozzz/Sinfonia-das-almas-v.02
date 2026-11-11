@@ -1,0 +1,137 @@
+# Configuração do AuthMe (plugin de login). Aqui fica só o que foi decidido de
+# propósito; o AuthMe completa o resto com os padrões ao iniciar.
+# NÃO edite servidor/plugins/AuthMe/config.yml: ele é sobrescrito por este
+# arquivo a cada inicialização. Referência de todas as opções:
+# https://github.com/AuthMe/AuthMeReloaded/blob/master/docs/config.md
+DataSource:
+    # Banco em arquivo (servidor/plugins/AuthMe/authme.db). Sem serviço extra
+    # para manter. Este arquivo guarda os hashes de senha: entra no backup e
+    # nunca vai para o Git.
+    backend: SQLITE
+settings:
+    sessions:
+        # Sessão por IP desligada: IP compartilhado (CGNAT, comum no Brasil)
+        # deixaria outra pessoa entrar sem senha.
+        enabled: false
+    messagesLanguage: br
+    # Todas as mensagens em português, qualquer que seja o idioma do jogo.
+    perPlayerLocale: false
+    serverName: Servidor de RP
+    restrictions:
+        # Antes do login: sem chat e sem nenhum comando além dos de autenticação.
+        allowChat: false
+        hideChat: true
+        allowCommands:
+        - /login
+        - /l
+        - /register
+        - /reg
+        - /captcha
+        - /2fa
+        - /totp
+        # Contas que um mesmo IP pode registrar. 2 em vez de 1 por causa de
+        # irmãos e de IP compartilhado pela operadora.
+        maxRegPerIp: 2
+        # Conexões simultâneas por IP.
+        maxLoginPerIp: 3
+        maxJoinPerIp: 3
+        minNicknameLength: 3
+        maxNicknameLength: 16
+        allowedNicknameCharacters: '[a-zA-Z0-9_]*'
+        # Quem já está online não é derrubado por outra conexão com o mesmo nick.
+        ForceSingleSession: true
+        kickOnWrongPassword: true
+        allowMovement: false
+        loginTimeout: 60
+        registerTimeout: 90
+        # Exigem o PacketEvents (está na lista de plugins).
+        ProtectInventoryBeforeLogIn: true
+        DenyTabCompleteBeforeLogin: true
+    security:
+        minPasswordLength: 8
+        passwordMaxLength: 64
+        # Hash forte, com sal por senha. Implementado em Java puro (BouncyCastle),
+        # não depende de biblioteca do sistema.
+        passwordHash: ARGON2ID
+        legacyHashes: []
+        unsafePasswords:
+        - '12345678'
+        - '123456789'
+        - '1234567890'
+        - '87654321'
+        - '11111111'
+        - '00000000'
+        - password
+        - password1
+        - qwertyui
+        - qwerty123
+        - senha123
+        - senha1234
+        - minecraft
+        - minecraft123
+        - help
+    registration:
+        enabled: true
+        force: true
+        type: PASSWORD
+        # /register <senha> <senha de novo>
+        secondArg: CONFIRMATION
+        dialog:
+            # Não há servidor de e-mail configurado, então sem botão de recuperação.
+            # Senha esquecida: a staff troca com "authme password <nick> <nova>".
+            showForgotPasswordButton: false
+            showBody: true
+            preJoin:
+                # Janela de login/registro antes de entrar no mundo: quem não se
+                # autentica nem chega a aparecer no servidor.
+                enable: true
+                showCancelButton: true
+                allowCloseWithEscape: false
+                registerCancelKicks: true
+                loginCancelKicks: true
+            postJoin:
+                enable: true
+    # O arquivo de boas-vindas padrão é em inglês; a recepção fica com o plugin de chat.
+    useWelcomeMessage: false
+    # "Fulano" registrado: "FULANO" e "fulano" não entram. Essencial em modo
+    # offline, onde cada grafia geraria um UUID (e um inventário) diferente.
+    preventOtherCase: true
+    # Login automático para conta original, com verificação criptográfica na
+    # Mojang (exige o PacketEvents). O jogador ativa uma vez com /premium,
+    # depois de logado com senha. O UUID continua sendo o offline.
+    enablePremium: true
+Protection:
+    # Bloqueio por país desligado: sem credencial da MaxMind o AuthMe só
+    # registraria avisos no log.
+    enableProtection: false
+    geoIpDatabase:
+        enabled: false
+    # Antibot automático: muitas entradas em poucos segundos fecham o servidor
+    # para nicks não registrados por alguns minutos.
+    enableAntiBot: true
+    antiBotInterval: 5
+    antiBotSensibility: 10
+    antiBotDuration: 10
+    antiBotDelay: 60
+Security:
+    console:
+        # Cópia do log do AuthMe em plugins/AuthMe/authme.log.
+        logConsole: true
+    captcha:
+        # Depois de 3 senhas erradas, pede um código antes de aceitar nova tentativa.
+        useCaptcha: true
+        maxLoginTry: 3
+        captchaLength: 5
+        captchaCountReset: 60
+    tempban:
+        # 8 senhas erradas em 1 hora: o IP fica banido por 30 minutos.
+        enableTempban: true
+        maxLoginTries: 8
+        tempbanLength: 30
+        minutesBeforeCounterReset: 60
+BackupSystem:
+    # Cópia do banco de contas a cada parada do servidor (plugins/AuthMe/backups).
+    # Não substitui o backup do servidor inteiro.
+    ActivateBackup: true
+    OnServerStart: false
+    OnServerStop: true
