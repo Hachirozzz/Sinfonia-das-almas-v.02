@@ -1,9 +1,12 @@
 # Conflito entre personagens
 
 Versão 0.1 (proposta inicial). Valores marcados com **[cfg]** são números de
-balanceamento e ficam no arquivo de configuração. As partes de consentimento e
-de convivência precisam ser fechadas com o `mc-comunidade` antes de virarem
-regra oficial.
+balanceamento e ficam no arquivo de configuração.
+
+Este arquivo é a mecânica. A conduta (motivo para atacar, amor à vida, conteúdo
+sensível, memória depois da derrota) está em `comunidade/regulamento.md` e
+`comunidade/regras-detalhadas.md`. A **derrota** daqui é o que aqueles textos
+chamam de PK; a **morte do personagem** é o CK.
 
 ## Resumo em cinco linhas
 
@@ -12,7 +15,8 @@ regra oficial.
 3. Qualquer envolvido pode **pedir os dados**. Pediu, vale dado.
 4. **PvP do Minecraft** só por duelo aceito pelos dois.
 5. Perder tira o personagem da cena e deixa um ferimento leve. **Ferimento
-   grave, marca permanente e morte só com consentimento do dono do personagem.**
+   grave, marca permanente e morte só com consentimento do dono do personagem**,
+   ou nos dois casos de exceção escritos nas regras da comunidade.
 
 ## Os três modos
 
@@ -30,9 +34,10 @@ Fora de um duelo aceito, jogador não causa dano a jogador. O jogo bloqueia.
   não há acordo.
 - Discordância sobre um golpe no emote ("pegou" contra "não pegou"): resolve-se
   aquele golpe com `/atacar` e a cena segue.
-- Discordância sobre regra: pausa de até 2 minutos no canal fora do personagem
-  local. Se não resolver, vale o que o dado mostrou, a cena continua, e quem se
-  sentiu prejudicado abre um chamado depois. A staff consulta `/rolagens` e só
+- Discordância sobre regra: uma mensagem curta no canal fora do personagem
+  local. Se não resolver, vale o que o dado mostrou, a cena termina da forma
+  menos grave para os dois lados, e quem se sentiu prejudicado abre um chamado
+  depois. A staff consulta `/rolagens` e só
   desfaz resultado quando houve quebra de regra.
 - Ninguém é obrigado a aceitar duelo, e recusar não tem custo.
 
@@ -95,6 +100,16 @@ Quem chega a 0 de Fôlego é **derrotado**. O Fôlego volta ao máximo 10 minuto
 
 - Não se pode atacar quem entrou no servidor ou trocou de personagem há menos
   de 60 segundos [cfg], quem está na antessala, nem quem já está derrotado.
+- **Novato**: conta com menos de 7 dias [cfg] de servidor não pode ser alvo de
+  `/atacar`, a menos que tenha atacado aquele jogador nos últimos 30 minutos
+  [cfg]. Passar o mouse sobre o nome mostra a marca de novato.
+- **Zona de paz**: a staff pode marcar áreas onde `/atacar` e `/duelo` não
+  funcionam (por exemplo, a cidade de chegada). Emote, teste e disputa
+  continuam valendo lá dentro.
+- **Sair no meio**: quem desconecta com ataque pendente, com Fôlego perdido ou
+  em duelo volta como derrotado, com ferimento leve, e o caso fica registrado.
+  Se foi queda de conexão, a regra de conduta manda voltar e avisar; a staff
+  remove o ferimento.
 - Vários contra um: cada atacante faz a sua troca. Estar em menor número já
   custa caro; não há bônus extra.
 
@@ -124,8 +139,8 @@ ele nunca é imposto.
 Vale igual para os três modos. O personagem derrotado:
 
 - recebe **ferimento leve** (exceto se rendeu-se);
-- fica **fora de combate** por 10 minutos [cfg]: não ataca, não duela, não pode
-  ser atacado de novo;
+- fica **fora de combate** por 30 minutos [cfg]: não ataca, não duela, não pode
+  ser atacado de novo. Continua onde caiu e com os seus itens;
 - sofre **um** desfecho escolhido por quem venceu, narrado por emote:
 
 | Desfecho | Limite |
@@ -170,9 +185,19 @@ acontece com os itens nessa hora é configuração do servidor (`mc-plugins`).
 
 ## Morte do personagem e consentimento
 
-**Nenhum personagem morre, fica gravemente ferido ou é marcado para sempre sem
-o dono digitar o consentimento.** Não há exceção para staff, evento, lei de
-reino ou resultado de dado.
+**Nenhum resultado de dado, duelo ou comando de outro jogador mata, fere
+gravemente ou marca para sempre um personagem sem o dono digitar o
+consentimento.**
+
+As regras da comunidade preveem só dois casos sem o comando do dono, e os dois
+passam pela staff, nunca por outro jogador:
+
+1. **Cláusula aceita antes**, por escrito: o jogador pediu um poder, um cargo
+   de risco ou entrou em evento anunciado como letal.
+2. **Decisão da staff por chamado**, depois de ouvir o jogador-alvo.
+
+Nesses casos a staff aplica com `/nucleorp desfecho <nick> <grave|morte>
+<motivo ou número do chamado>`. O motivo é obrigatório e fica registrado.
 
 ### Como se consente
 
@@ -217,12 +242,27 @@ narrador>`.
 
 ## Para fechar com o `mc-comunidade`
 
-- Texto final da regra de consentimento e do que conta como pressão.
-- Motivo dentro da história para iniciar conflito (proibição de ataque
-  gratuito) e punição para quem abusa de `/atacar`.
-- Limites de detenção, roubo e saque.
-- Conteúdo sensível em emotes de violência.
-- Como abrir chamado para contestar um conflito.
+Já alinhado com `comunidade/regras-detalhadas.md`: derrota sem consentimento
+e com motivo, morte e marca permanente com consentimento ou pelos dois casos
+de exceção, proteção de novato, prazo de 30 minutos fora de combate.
+
+Pontos em que este arquivo responde a um "a combinar" de lá, para o
+`mc-comunidade` conferir:
+
+- Como o resultado é decidido: emote, dados quando alguém pede, duelo por
+  acordo.
+- Terceiros na luta: sem limite de número; cada um faz a sua troca.
+- Quem desconecta em combate: volta derrotado e com ferimento leve.
+- Depois da derrota: o personagem fica onde caiu, com os itens.
+- Depois da morte: ficha arquivada, nome reservado, itens arquivados; vaga
+  livre em 3 dias.
+
+Pontos em que os dois textos ainda **divergem**:
+
+- **Assalto.** As regras da comunidade permitem assalto. Aqui, nesta fase,
+  nenhum item ou moeda muda de dono sem o acordo do dono (decisão 6 abaixo).
+- **Ferimento grave.** Lá só existe ferimento comum e permanente. Aqui há um
+  grau intermediário (7 dias) que também pede consentimento.
 
 ## Decisões para o dono confirmar
 
@@ -235,11 +275,11 @@ narrador>`.
    é leve e temporário. Alternativa: todo conflito por dados exige aceite, como
    a disputa comum; fica mais seguro, mas permite escapar de qualquer
    consequência só não clicando.
-3. **Morte, ferimento grave e marca permanente só por comando de consentimento
-   do dono, sem exceção para staff.** Escolhi isso porque é a regra mais fácil
-   de explicar e de provar em caso de briga. Alternativa: a staff poder decretar
-   morte em casos previstos (execução por lei de reino, eventos marcados como
-   letais).
+3. **Morte e marca permanente por comando de consentimento do dono, mais os
+   dois casos de exceção das regras da comunidade, aplicados só pela staff e
+   com motivo registrado.** Segui o que o `mc-comunidade` escreveu. Alternativa:
+   nenhuma exceção, nem para a staff, que é mais fácil de explicar e de provar,
+   mas deixa sem saída o personagem que ignora todo perigo.
 4. **Derrota dá ferimento leve automático.** Escolhi isso para perder ter peso
    e para o ofício de cura ter serventia. Alternativa: derrota sem efeito
    mecânico, só narrativo.
