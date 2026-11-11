@@ -84,7 +84,7 @@ settings:
             preJoin:
                 # Janela de login/registro antes de entrar no mundo: quem não se
                 # autentica nem chega a aparecer no servidor.
-                enable: true
+                enable: false
                 showCancelButton: true
                 allowCloseWithEscape: false
                 registerCancelKicks: true
